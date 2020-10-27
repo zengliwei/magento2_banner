@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="banner_group" resource="default" engine="innodb" comment="Banner Group Table">
+        <column xsi:type="smallint" name="id" comment="Banner Group ID"
+                unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="varchar" name="identifier" comment="Identifier"
+                nullable="false" length="64"/>
+        <column xsi:type="varchar" name="name" comment="Name"
+                nullable="false" length="256"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="unique" referenceId="MENU_IDENTIFIER">
+            <column name="identifier"/>
+        </constraint>
+        <index referenceId="MENU_NAME" indexType="fulltext">
+            <column name="name"/>
+        </index>
+    </table>
+    <table name="banner_item" resource="default" engine="innodb" comment="Banner Item Table">
+        <column xsi:type="smallint" name="id" comment="Banner Item ID"
+                unsigned="true" nullable="false" identity="true"/>
+        <column xsi:type="smallint" name="group_id" comment="Group ID"
+                unsigned="true" nullable="false"/>
+        <column xsi:type="varchar" name="store_ids" comment="Store IDs"
+                nullable="false" length="255" default="0"/>
+        <column xsi:type="smallint" name="order" comment="Sort Order"
+                unsigned="true" nullable="false" default="999"/>
+        <column xsi:type="varchar" name="title" comment="Title"
+                nullable="false" length="255"/>
+        <column xsi:type="varchar" name="type" comment="Type"
+                nullable="false" length="32" default="image"/>
+        <column xsi:type="varchar" name="media" comment="Media"
+                nullable="false" length="255"/>
+        <column xsi:type="text" name="url" comment="URL"
+                nullable="true"/>
+        <column xsi:type="text" name="content" comment="Content"
+                nullable="false"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="MENU_ID" onDelete="CASCADE"
+                    table="banner_group" column="group_id"
+                    referenceTable="banner_item" referenceColumn="id"/>
+        <index referenceId="BANNER_ITEM_GROUP_ID" indexType="btree">
+            <column name="group_id"/>
+        </index>
+        <index referenceId="BANNER_ITEM_STORE_ID" indexType="btree">
+            <column name="store_ids"/>
+        </index>
+        <index referenceId="BANNER_ITEM_ORDER" indexType="btree">
+            <column name="order"/>
+        </index>
+        <index referenceId="BANNER_ITEM_TITLE" indexType="fulltext">
+            <column name="title"/>
+        </index>
+    </table>
+</schema>

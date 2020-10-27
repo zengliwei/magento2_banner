@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Common_Banner::banner" module="Common_Banner"
+             parent="Magento_Backend::content" resource="Common_Banner::banner"
+             title="Banner" translate="title" sortOrder="10"/>
+        <add id="Common_Banner::banner_group" module="Common_Banner"
+             parent="Common_Banner::banner" resource="Common_Banner::banner_group"
+             title="Banner Groups" translate="title" sortOrder="10" action="banner/group"/>
+        <add id="Common_Banner::banner_item" module="Common_Banner"
+             parent="Common_Banner::banner" resource="Common_Banner::banner_item"
+             title="Banner Items" translate="title" sortOrder="20" action="banner/item"/>
+    </menu>
+</config>
