@@ -4,6 +4,7 @@
     <module name="Common_Banner">
         <sequence>
             <module name="Common_Base"/>
+            <module name="Magento_Widget"/>
         </sequence>
     </module>
 </config>

@@ -151,6 +151,10 @@
                                     <callback>value</callback>
                                     <callback>hide</callback>
                                 </action>
+                                <action name="2">
+                                    <target>banner_item_form.banner_item_form.general.url</target>
+                                    <callback>show</callback>
+                                </action>
                             </actions>
                         </rule>
                         <rule name="1">
@@ -165,6 +169,10 @@
                                     <callback>value</callback>
                                     <callback>show</callback>
                                 </action>
+                                <action name="2">
+                                    <target>banner_item_form.banner_item_form.general.url</target>
+                                    <callback>hide</callback>
+                                </action>
                             </actions>
                         </rule>
                     </rules>
@@ -178,7 +186,7 @@
                 </select>
             </formElements>
         </field>
-        <field name="image" formElement="imageUploader">
+        <field name="image" formElement="imageUploader" sortOrder="400">
             <settings>
                 <label translate="true">Image</label>
                 <dataScope>data.image</dataScope>
@@ -199,7 +207,7 @@
                 </imageUploader>
             </formElements>
         </field>
-        <field name="video" formElement="fileUploader">
+        <field name="video" formElement="fileUploader" sortOrder="500">
             <settings>
                 <label translate="true">Video</label>
                 <dataScope>data.video</dataScope>
@@ -220,7 +228,7 @@
                 </fileUploader>
             </formElements>
         </field>
-        <field name="url" formElement="input" sortOrder="400">
+        <field name="url" formElement="input" sortOrder="600">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">data</item>
@@ -231,7 +239,7 @@
                 <label translate="true">URL</label>
             </settings>
         </field>
-        <field name="order" formElement="input" sortOrder="600">
+        <field name="order" formElement="input" sortOrder="800">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">data</item>
@@ -246,7 +254,7 @@
                 </validation>
             </settings>
         </field>
-        <field name="store_ids" formElement="multiselect" sortOrder="700"
+        <field name="store_ids" formElement="multiselect" sortOrder="900"
                class="Magento\Store\Ui\Component\Form\Field\StoreView">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -270,7 +278,7 @@
                 </multiselect>
             </formElements>
         </field>
-        <field name="group_id" formElement="select" sortOrder="800">
+        <field name="group_id" formElement="select" sortOrder="1000">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="source" xsi:type="string">data</item>
@@ -290,6 +298,37 @@
                         <options class="Common\Banner\Model\ResourceModel\Group\Collection"/>
                     </settings>
                 </select>
+            </formElements>
+        </field>
+    </fieldset>
+    <fieldset name="content">
+        <settings>
+            <label>Content</label>
+        </settings>
+        <field name="content" formElement="wysiwyg" sortOrder="700">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">data</item>
+                    <item name="wysiwygConfigData" xsi:type="array">
+                        <item name="height" xsi:type="string">380px</item>
+                        <item name="add_variables" xsi:type="boolean">true</item>
+                        <item name="add_widgets" xsi:type="boolean">true</item>
+                        <item name="add_images" xsi:type="boolean">true</item>
+                        <item name="add_directives" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <label>Content</label>
+                <dataScope>data.content</dataScope>
+            </settings>
+            <formElements>
+                <wysiwyg>
+                    <settings>
+                        <rows>8</rows>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
             </formElements>
         </field>
     </fieldset>
