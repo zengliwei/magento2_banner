@@ -13,7 +13,7 @@ class Save extends AbstractSaveAction
     protected function processData(array $data): array
     {
         if (!empty($data['image'])) {
-            $data['media'] = Item::MEDIA_FOLDER . '/' . $data['image'][0]['file'];
+            $data['media'] = $data['image'][0]['file'];
         }
         return parent::processData($data);
     }

@@ -15,14 +15,4 @@ class Item extends AbstractStoreModel
     {
         $this->_init(\Common\Banner\Model\ResourceModel\Group\Item::class);
     }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function afterLoad()
-    {
-        parent::afterLoad();
-        $this->setData($this->getData('type'), $this->getData('media'));
-        return $this;
-    }
 }
