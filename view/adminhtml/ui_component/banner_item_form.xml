@@ -136,6 +136,39 @@
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
+                <switcherConfig>
+                    <enabled>true</enabled>
+                    <rules>
+                        <rule name="0">
+                            <value>image</value>
+                            <actions>
+                                <action name="0">
+                                    <target>banner_item_form.banner_item_form.general.image</target>
+                                    <callback>show</callback>
+                                </action>
+                                <action name="1">
+                                    <target>banner_item_form.banner_item_form.general.video</target>
+                                    <callback>value</callback>
+                                    <callback>hide</callback>
+                                </action>
+                            </actions>
+                        </rule>
+                        <rule name="1">
+                            <value>video</value>
+                            <actions>
+                                <action name="0">
+                                    <target>banner_item_form.banner_item_form.general.image</target>
+                                    <callback>hide</callback>
+                                </action>
+                                <action name="1">
+                                    <target>banner_item_form.banner_item_form.general.video</target>
+                                    <callback>value</callback>
+                                    <callback>show</callback>
+                                </action>
+                            </actions>
+                        </rule>
+                    </rules>
+                </switcherConfig>
             </settings>
             <formElements>
                 <select>
@@ -145,10 +178,31 @@
                 </select>
             </formElements>
         </field>
-        <file name="image">
+        <field name="image" formElement="imageUploader">
+            <settings>
+                <label translate="true">Image</label>
+                <dataScope>data.image</dataScope>
+                <componentType>imageUploader</componentType>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <allowedExtensions>jpg jpeg gif png</allowedExtensions>
+                        <maxFileSize>2097152</maxFileSize>
+                        <uploaderConfig>
+                            <param xsi:type="string" name="url">banner/item/upload</param>
+                        </uploaderConfig>
+                    </settings>
+                </imageUploader>
+            </formElements>
+        </field>
+        <file name="video">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Image</item>
+                    <item name="label" xsi:type="string">Video</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="formElement" xsi:type="string">fileUploader</item>
                     <item name="uploaderConfig" xsi:type="array">
@@ -156,6 +210,11 @@
                     </item>
                 </item>
             </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
         </file>
         <field name="url" formElement="input" sortOrder="400">
             <argument name="data" xsi:type="array">
@@ -166,9 +225,6 @@
             <settings>
                 <dataScope>data.url</dataScope>
                 <label translate="true">URL</label>
-                <validation>
-                    <rule name="required-entry" xsi:type="boolean">true</rule>
-                </validation>
             </settings>
         </field>
         <field name="order" formElement="input" sortOrder="600">

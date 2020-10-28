@@ -10,6 +10,17 @@ class Save extends AbstractSaveAction
     /**
      * @inheritDoc
      */
+    protected function processData(array $data): array
+    {
+        if (!empty($data['image'])) {
+            $data['media'] = Item::MEDIA_FOLDER . '/' . $data['image'][0]['file'];
+        }
+        return parent::processData($data);
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function execute()
     {
         return $this->save(
