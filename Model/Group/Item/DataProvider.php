@@ -70,17 +70,17 @@ class DataProvider extends AbstractDataProvider
     {
         parent::getData();
         $baseMediaUrl = $this->storeManager->getStore()->getBaseUrl(DirectoryList::MEDIA);
-        foreach ($this->loadedData as &$data) {
-            if ($data['data']['type'] == 'image') {
-                $filePath = $this->mediaDirectory->getAbsolutePath(Item::MEDIA_FOLDER . '/' . $data['data']['media']);
-                $imageInfo = getImageSize($filePath);
-                $data['data']['image'] = [
+        foreach (array_keys($this->loadedData) as $id) {
+            $data = &$this->loadedData[$id]['data'];
+            if (!empty($data['media'])) {
+                $filePath = $this->mediaDirectory->getAbsolutePath(Item::MEDIA_FOLDER . '/' . $data['media']);
+                $data[$data['type']] = [
                     [
-                        'name' => $data['data']['media'],
-                        'file' => $data['data']['media'],
-                        'url'  => $baseMediaUrl . Item::MEDIA_FOLDER . '/' . $data['data']['media'],
-                        'type' => $imageInfo['mime'],
-                        'size' => filesize($filePath)
+                        'name' => $data['media'],
+                        'file' => $data['media'],
+                        'url'  => $baseMediaUrl . Item::MEDIA_FOLDER . '/' . $data['media'],
+                        'size' => filesize($filePath),
+                        'type' => $data['type'] == 'image' ? getImageSize($filePath)['mime'] : 'video/mp4'
                     ]
                 ];
             }

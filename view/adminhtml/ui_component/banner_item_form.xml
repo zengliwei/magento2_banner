@@ -199,23 +199,27 @@
                 </imageUploader>
             </formElements>
         </field>
-        <file name="video">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="label" xsi:type="string">Video</item>
-                    <item name="visible" xsi:type="boolean">true</item>
-                    <item name="formElement" xsi:type="string">fileUploader</item>
-                    <item name="uploaderConfig" xsi:type="array">
-                        <item name="url" xsi:type="url" path="banner/item/upload"/>
-                    </item>
-                </item>
-            </argument>
+        <field name="video" formElement="fileUploader">
             <settings>
+                <label translate="true">Video</label>
+                <dataScope>data.video</dataScope>
+                <componentType>fileUploader</componentType>
                 <validation>
                     <rule name="required-entry" xsi:type="boolean">true</rule>
                 </validation>
             </settings>
-        </file>
+            <formElements>
+                <fileUploader>
+                    <settings>
+                        <allowedExtensions>mp4 svg</allowedExtensions>
+                        <maxFileSize>10485760</maxFileSize>
+                        <uploaderConfig>
+                            <param xsi:type="string" name="url">banner/item/upload</param>
+                        </uploaderConfig>
+                    </settings>
+                </fileUploader>
+            </formElements>
+        </field>
         <field name="url" formElement="input" sortOrder="400">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

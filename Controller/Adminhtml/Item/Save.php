@@ -12,8 +12,8 @@ class Save extends AbstractSaveAction
      */
     protected function processData(array $data): array
     {
-        if (!empty($data['image'])) {
-            $data['media'] = $data['image'][0]['file'];
+        if (!empty($data[$data['type']])) {
+            $data['media'] = $data[$data['type']][0]['file'];
         }
         return parent::processData($data);
     }
