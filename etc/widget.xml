@@ -15,6 +15,14 @@
                     </data>
                 </block>
             </parameter>
+            <parameter name="template" xsi:type="select" visible="true" required="true" sort_order="20">
+                <label translate="true">Template</label>
+                <options>
+                    <option name="carousel" value="group/widget/carousel.phtml" selected="true">
+                        <label translate="true">Carousel Template</label>
+                    </option>
+                </options>
+            </parameter>
         </parameters>
     </widget>
 </widgets>

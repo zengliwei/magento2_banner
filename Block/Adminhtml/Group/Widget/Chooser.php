@@ -2,6 +2,8 @@
 
 namespace Common\Banner\Block\Adminhtml\Group\Widget;
 
+use Common\Banner\Model\GroupFactory;
+use Common\Banner\Model\ResourceModel\Group as ResourceGroup;
 use Common\Banner\Model\ResourceModel\Group\CollectionFactory;
 use Magento\Backend\Block\Widget\Grid\Extended;
 use Magento\Framework\Data\Form\Element\AbstractElement;
@@ -13,17 +15,31 @@ use Magento\Framework\Exception\LocalizedException;
 class Chooser extends Extended
 {
     /**
-     * @var CollectionFactory\
+     * @var CollectionFactory
      */
     private $collectionFactory;
 
+    /**
+     * @var GroupFactory
+     */
+    private $groupFactory;
+
+    /**
+     * @var ResourceGroup
+     */
+    private $resourceGroup;
+
     public function __construct(
         CollectionFactory $collectionFactory,
+        GroupFactory $groupFactory,
+        ResourceGroup $resourceGroup,
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
         array $data = []
     ) {
         $this->collectionFactory = $collectionFactory;
+        $this->groupFactory = $groupFactory;
+        $this->resourceGroup = $resourceGroup;
         parent::__construct($context, $backendHelper, $data);
     }
 
@@ -105,6 +121,13 @@ EOF;
                 'source_url'  => $this->getUrl('banner/group_widget/chooser', ['uid' => $uid])
             ]
         );
+        if (($id = $element->getData('value'))) {
+            $group = $this->groupFactory->create();
+            $this->resourceGroup->load($group, $id);
+            if ($group->getId()) {
+                $block->setLabel($this->escapeHtml($group->getData('name')));
+            }
+        }
         return $element->setData('after_element_html', $block->toHtml());
     }
 }

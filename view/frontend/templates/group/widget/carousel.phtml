@@ -1,0 +1,22 @@
+<?php
+
+use Common\Banner\Block\Widget\Carousel;
+
+/* @var Carousel $block */
+$items = $block->getItems();
+?>
+<section class="vertical slider">
+    <?php foreach ($items as $item): ?>
+        <div>
+            <?php if ($item->getData('type') == 'image') : ?>
+                <?php if ($item->getData('url')) : ?>
+                    <a href="<?= $item->getData('url') ?>">
+                        <img src="<?= $item->getData('media') ?>"/>
+                    </a>
+                <?php else : ?>
+                    <img src="<?= $item->getData('media') ?>"/>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div>
+    <?php endforeach; ?>
+</section>
