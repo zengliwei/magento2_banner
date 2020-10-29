@@ -3,6 +3,7 @@
 namespace Common\Banner\Controller\Adminhtml\Group\Widget;
 
 use Magento\Backend\App\Action;
+use Magento\Backend\Block\Template;
 use Magento\Framework\View\Result\Layout;
 use Magento\Framework\View\Result\LayoutFactory;
 
@@ -31,7 +32,10 @@ class Chooser extends Action
     public function execute()
     {
         /* @var Layout $resultLayout */
+        /* @var Template $block */
         $resultLayout = $this->layoutFactory->create();
+        $block = $resultLayout->getLayout()->getBlock('banner.group.widget.chooser');
+        $block->setData('id', $this->getRequest()->getParam('uid'));
         return $resultLayout;
     }
 }
