@@ -9,14 +9,23 @@ $items = $block->getItems();
     <section class="vertical slider" data-role="carousel">
         <?php foreach ($items as $item): ?>
             <div>
-                <?php if ($item->getData('type') == 'image') : ?>
-                    <?php if ($item->getData('url')) : ?>
-                        <a href="<?= $item->getData('url') ?>">
+                <div class="media">
+                    <?php if ($item->getData('type') == 'image') : ?>
+                        <?php if ($item->getData('url')) : ?>
+                            <a href="<?= $item->getData('url') ?>">
+                                <img src="<?= $block->getMediaUrl($item->getData('media')) ?>"/>
+                            </a>
+                        <?php else : ?>
                             <img src="<?= $block->getMediaUrl($item->getData('media')) ?>"/>
-                        </a>
-                    <?php else : ?>
-                        <img src="<?= $block->getMediaUrl($item->getData('media')) ?>"/>
+                        <?php endif; ?>
                     <?php endif; ?>
+                </div>
+                <?php if ($item->getData('content')) : ?>
+                    <?= $item->getData('content') ?>
+                <?php else : ?>
+                    <div class="content">
+                        <strong class="title"><?= $item->getData('title') ?></strong>
+                    </div>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>
@@ -24,6 +33,9 @@ $items = $block->getItems();
     <script>
         require(['jquery', 'carousel'], function ($) {
             $('[data-role="carousel"]').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                arrows: true,
                 dots: true,
                 infinite: true
             });
