@@ -15,10 +15,11 @@
  * OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 namespace Common\Banner\Setup\Patch\Data;
 
-use Common\Banner\Model\GroupFactory;
 use Common\Banner\Model\Group\ItemFactory;
+use Common\Banner\Model\GroupFactory;
 use Common\Banner\Model\ResourceModel\Group as ResourceGroup;
 use Common\Banner\Model\ResourceModel\Group\Item as ResourceItem;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
@@ -66,6 +67,14 @@ class DefaultBanner implements DataPatchInterface
     /**
      * {@inheritdoc}
      */
+    public static function getDependencies()
+    {
+        return [];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function apply()
     {
         $menuSource = [
@@ -94,14 +103,6 @@ class DefaultBanner implements DataPatchInterface
                 $this->resourceItem->save($item->setData($itemData));
             }
         }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public static function getDependencies()
-    {
-        return [];
     }
 
     /**

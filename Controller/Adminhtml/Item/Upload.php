@@ -15,10 +15,11 @@
  * OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 namespace Common\Banner\Controller\Adminhtml\Item;
 
-use Common\Base\Controller\Adminhtml\AbstractUploadAction;
 use Common\Banner\Model\Group\Item;
+use Common\Base\Controller\Adminhtml\AbstractUploadAction;
 
 class Upload extends AbstractUploadAction
 {

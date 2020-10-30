@@ -15,24 +15,14 @@
  * OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 namespace Common\Banner\Controller\Adminhtml\Item;
 
-use Common\Base\Controller\Adminhtml\AbstractSaveAction;
 use Common\Banner\Model\Group\Item;
+use Common\Base\Controller\Adminhtml\AbstractSaveAction;
 
 class Save extends AbstractSaveAction
 {
-    /**
-     * @inheritDoc
-     */
-    protected function processData(array $data): array
-    {
-        if (!empty($data[$data['type']])) {
-            $data['media'] = $data[$data['type']][0]['file'];
-        }
-        return parent::processData($data);
-    }
-
     /**
      * @inheritDoc
      */
@@ -44,5 +34,16 @@ class Save extends AbstractSaveAction
             'Banner item saved successfully.',
             'banner_item'
         );
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function processData(array $data): array
+    {
+        if (!empty($data[$data['type']])) {
+            $data['media'] = $data[$data['type']][0]['file'];
+        }
+        return parent::processData($data);
     }
 }

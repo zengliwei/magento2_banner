@@ -15,6 +15,7 @@
  * OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 namespace Common\Banner\Model\Group\Item;
 
 use Common\Banner\Model\Group\Item;
@@ -42,15 +43,15 @@ class DataProvider extends AbstractDataProvider
     protected $storeManager;
 
     /**
-     * @param string $name
+     * @param string                 $name
      * @param                        $primaryFieldName
      * @param                        $requestFieldName
-     * @param Filesystem $filesystem
-     * @param StoreManagerInterface $storeManager
+     * @param Filesystem             $filesystem
+     * @param StoreManagerInterface  $storeManager
      * @param DataPersistorInterface $dataPersistor
-     * @param array $meta
-     * @param array $data
-     * @param PoolInterface|null $pool
+     * @param array                  $meta
+     * @param array                  $data
+     * @param PoolInterface|null     $pool
      * @throws FileSystemException
      */
     public function __construct(
@@ -68,14 +69,6 @@ class DataProvider extends AbstractDataProvider
 
         $this->mediaDirectory = $filesystem->getDirectoryWrite(DirectoryList::MEDIA);
         $this->storeManager = $storeManager;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    protected function init()
-    {
-        $this->initCollection(Collection::class);
     }
 
     /**
@@ -104,5 +97,13 @@ class DataProvider extends AbstractDataProvider
             }
         }
         return $this->loadedData;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function init()
+    {
+        $this->initCollection(Collection::class);
     }
 }

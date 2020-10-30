@@ -15,11 +15,12 @@
  * OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+
 namespace Common\Banner\Model\ResourceModel\Group\Item;
 
-use Common\Base\Model\ResourceModel\AbstractStoreCollection;
 use Common\Banner\Model\Group\Item;
 use Common\Banner\Model\ResourceModel\Group\Item as ResourceItem;
+use Common\Base\Model\ResourceModel\AbstractStoreCollection;
 
 class Collection extends AbstractStoreCollection
 {
