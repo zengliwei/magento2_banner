@@ -82,7 +82,7 @@ class DefaultBanner implements DataPatchInterface
      */
     public function apply()
     {
-        $menuSource = [
+        $groupSource = [
             [
                 'data'  => ['identifier' => 'home', 'name' => 'Home Banner'],
                 'items' => [
@@ -99,11 +99,11 @@ class DefaultBanner implements DataPatchInterface
                 ]
             ]
         ];
-        foreach ($menuSource as $menuData) {
-            $menu = $this->groupFactory->create();
-            $this->resourceGroup->save($menu->setData($menuData['data']));
-            foreach ($menuData['items'] as $itemData) {
-                $itemData['group_id'] = $menu->getId();
+        foreach ($groupSource as $groupData) {
+            $group = $this->groupFactory->create();
+            $this->resourceGroup->save($group->setData($groupData['data']));
+            foreach ($groupData['items'] as $itemData) {
+                $itemData['group_id'] = $group->getId();
                 $item = $this->itemFactory->create();
                 $this->resourceItem->save($item->setData($itemData));
             }
