@@ -2,15 +2,11 @@
 
 // Default Variables
 @slick-loader-path: '../Common_Banner/';
-@slick-font-path: '@{slick-loader-path}fonts/';
-@slick-font-family: 'slick';
 @slick-arrow-color: white;
 @slick-dot-color: white;
 @slick-dot-color-active: @slick-dot-color;
 @slick-prev-character: '<';
 @slick-next-character: '>';
-@slick-dot-character: '•';
-@slick-dot-size: 6px;
 @slick-opacity-default: .6;
 @slick-opacity-on-hover: .8;
 @slick-opacity-not-active: .25;
@@ -20,6 +16,10 @@
 
 .block-carousel {
     margin-bottom: 16px;
+}
+
+.block-promo.home-main {
+    display: none;
 }
 
 
@@ -47,7 +47,7 @@
                 box-sizing: border-box;
                 padding: 25px 35px 35px;
                 position: absolute;
-                right: 40px;
+                right: 68px;
                 top: 40px;
                 width: 40%;
                 z-index: 2;
@@ -73,7 +73,7 @@
                     color: #fff;
                     cursor: pointer;
                     display: inline-block;
-                    font: 1.4rem/1.5 'Helvetica Neue',Helvetica,Arial,sans-serif;
+                    font: 1.4rem/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
                     font-weight: 700;
                     margin: 25px 0 0;
                     padding: 10px 15px;
@@ -91,9 +91,9 @@
         cursor: pointer;
         display: block;
         font-size: 0;
-        height: 20px;
         line-height: 0;
         outline: none;
+        padding: 0;
     }
 
 
@@ -139,7 +139,6 @@
 
         &:after {
             color: @slick-arrow-color;
-            font-family: @slick-font-family;
             font-size: 20px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -205,17 +204,11 @@
         li {
             position: relative;
             display: inline-block;
-            height: 20px;
-            width: 20px;
             margin: 0 5px;
             padding: 0;
             cursor: pointer;
 
             button {
-                height: 20px;
-                padding: 5px;
-                width: 20px;
-
                 &:hover, &:focus {
                     outline: none;
 
@@ -225,38 +218,24 @@
                 }
 
                 &:before {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    content: @slick-dot-character;
-                    width: 20px;
-                    height: 20px;
-                    font-family: @slick-font-family;
-                    font-size: @slick-dot-size;
-                    line-height: 20px;
-                    text-align: center;
-                    color: @slick-dot-color;
+                    background: @slick-dot-color;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    content: '';
+                    display: block;
+                    height: 10px;
                     opacity: @slick-opacity-not-active;
-                    -webkit-font-smoothing: antialiased;
-                    -moz-osx-font-smoothing: grayscale;
+                    text-align: center;
+                    transition: width .4s;
+                    width: 10px;
                 }
             }
 
             &.slick-active button:before {
                 color: @slick-dot-color-active;
                 opacity: @slick-opacity-default;
+                width: 20px;
             }
         }
-    }
-}
-
-& when ( @slick-font-family = 'slick' ) {
-    /* Icons */
-    @font-face {
-        font-family: 'slick';
-        font-weight: normal;
-        font-style: normal;
-        src: url('@{slick-font-path}slick.eot');
-        src: url('@{slick-font-path}slick.eot?#iefix') format('embedded-opentype'), url('@{slick-font-path}slick.woff') format('woff'), url('@{slick-font-path}slick.ttf') format('truetype'), url('@{slick-font-path}slick.svg#slick') format('svg');
     }
 }

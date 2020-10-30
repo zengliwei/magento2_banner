@@ -12,7 +12,7 @@ $items = $block->getItems();
                 <div class="media">
                     <?php if ($item->getData('type') == 'image') : ?>
                         <?php if ($item->getData('url')) : ?>
-                            <a href="<?= $item->getData('url') ?>">
+                            <a href="<?= $block->getLinkUrl($item->getData('url')) ?>">
                                 <img src="<?= $block->getMediaUrl($item->getData('media')) ?>"/>
                             </a>
                         <?php else : ?>

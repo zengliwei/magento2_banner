@@ -31,7 +31,18 @@ class Carousel extends Template
     }
 
     /**
-     * @param $mediaFile
+     * @param string $url
+     * @return string
+     */
+    public function getLinkUrl($url)
+    {
+        return preg_match('/^https?:\/\//', $url)
+            ? $url
+            : $this->getBaseUrl() . trim($url, '/');
+    }
+
+    /**
+     * @param string $mediaFile
      * @return string
      * @throws NoSuchEntityException
      */
