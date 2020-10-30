@@ -51,7 +51,7 @@ class Carousel extends Template
         return $mediaFile
             ? ($this->_storeManager->getStore()->getBaseUrl(DirectoryList::MEDIA)
                 . Item::MEDIA_FOLDER . '/' . $mediaFile)
-            : $this->getViewFileUrl('Common_Banner::images/default.png');
+            : $this->getViewFileUrl('Common_Banner::images/default.jpg');
     }
 
     /**
