@@ -63,7 +63,8 @@ class Carousel extends Template
         /* @var Collection $collection */
         $collection = $this->collectionFactory->create();
         $collection->addStoreFilter($this->_storeManager->getStore())
-            ->addFieldToFilter('group_id', ['eq' => $this->getData('group_id')]);
+            ->addFieldToFilter('group_id', ['eq' => $this->getData('group_id')])
+            ->addFieldToFilter('is_active', ['eq' => 1]);
         return $collection;
     }
 }

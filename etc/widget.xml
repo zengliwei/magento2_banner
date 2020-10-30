@@ -23,6 +23,349 @@
                     </option>
                 </options>
             </parameter>
+            <parameter name="accessibility" xsi:type="select" visible="true" required="true" sort_order="101">
+                <label translate="true">Accessibility</label>
+                <description>
+                    <![CDATA[Enables tabbing and arrow key navigation. Unless autoplay: true, sets browser focus to current slide (or first of current slide set, if multiple slidesToShow) after slide change. For full a11y compliance enable focusOnChange in addition to this.]]]>
+                </description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="adaptive_height" xsi:type="select" visible="true" required="true" sort_order="102">
+                <label translate="true">Adaptive Height</label>
+                <description><![CDATA[Adapts slider height to the current slide]]></description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="arrows" xsi:type="select" visible="true" required="true" sort_order="103">
+                <label translate="true">Arrows</label>
+                <description><![CDATA[Enable Next/Prev arrows]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="autoplay" xsi:type="select" visible="true" required="true" sort_order="104">
+                <label translate="true">Autoplay</label>
+                <description><![CDATA[Enables auto play of slides]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="autoplay_speed" xsi:type="text" visible="true" required="true" sort_order="105">
+                <label translate="true">Autoplay Speed</label>
+                <description><![CDATA[Auto play change interval]]></description>
+                <value>3000</value>
+            </parameter>
+            <parameter name="center_mode" xsi:type="select" visible="true" required="true" sort_order="106">
+                <label translate="true">Center Mode</label>
+                <description>
+                    <![CDATA[Enables centered view with partial prev/next slides. Use with odd numbered slidesToShow counts.]]>
+                </description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="center_padding" xsi:type="text" visible="true" required="true" sort_order="107">
+                <label translate="true">Center Padding</label>
+                <description><![CDATA[Side padding when in center mode. (px or %)]]></description>
+                <value>50px</value>
+            </parameter>
+            <parameter name="dots" xsi:type="select" visible="true" required="true" sort_order="108">
+                <label translate="true">Dots</label>
+                <description><![CDATA[Current slide indicator dots]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="draggable" xsi:type="select" visible="true" required="true" sort_order="109">
+                <label translate="true">Draggable</label>
+                <description><![CDATA[Enables desktop dragging]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="fade" xsi:type="select" visible="true" required="true" sort_order="110">
+                <label translate="true">Fade</label>
+                <description><![CDATA[Enables fade]]></description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="focus_on_change" xsi:type="select" visible="true" required="true" sort_order="111">
+                <label translate="true">Focus On Change</label>
+                <description><![CDATA[Puts focus on slide after change]]></description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="focus_on_select" xsi:type="select" visible="true" required="true" sort_order="112">
+                <label translate="true">Focus On Select</label>
+                <description><![CDATA[Enable focus on selected element (click)]]></description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="infinite" xsi:type="select" visible="true" required="true" sort_order="113">
+                <label translate="true">Infinite</label>
+                <description><![CDATA[Infinite looping]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="initial_slide" xsi:type="text" visible="true" required="true" sort_order="114">
+                <label translate="true">Initial Slide</label>
+                <description><![CDATA[Slide to start on]]></description>
+                <value>0</value>
+            </parameter>
+            <parameter name="lazy_load" xsi:type="select" visible="true" required="true" sort_order="115">
+                <label translate="true">Lazy Load</label>
+                <description><![CDATA[]]></description>
+                <options>
+                    <option name="ondemand" value="ondemand" selected="true">
+                        <label translate="true">On demand</label>
+                    </option>
+                    <option name="progressive" value="progressive">
+                        <label translate="true">Progressive</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="pause_on_dots_hover" xsi:type="select" visible="true" required="true" sort_order="116">
+                <label translate="true">Pause on dots hover</label>
+                <description><![CDATA[Pauses autoplay when a dot is hovered]]></description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="pause_on_focus" xsi:type="select" visible="true" required="true" sort_order="117">
+                <label translate="true">Pause on focus</label>
+                <description><![CDATA[Pauses autoplay when slider is focussed]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="pause_on_hover" xsi:type="select" visible="true" required="true" sort_order="118">
+                <label translate="true">Pause on hover</label>
+                <description><![CDATA[Pauses autoplay on hover]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="accessibility" xsi:type="select" visible="true" required="true" sort_order="119">
+                <label translate="true">Autoplay</label>
+                <description><![CDATA[]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="rows" xsi:type="text" visible="true" required="true" sort_order="120">
+                <label translate="true">Rows</label>
+                <description>
+                    <![CDATA[Setting this to more than 1 initializes grid mode. Use slidesPerRow to set how many slides should be in each row.]]>
+                </description>
+                <value>1</value>
+            </parameter>
+            <parameter name="rtl" xsi:type="select" visible="true" required="true" sort_order="121">
+                <label translate="true">rtl</label>
+                <description><![CDATA[Change the slider's direction to become right-to-left]]></description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="slides_per_row" xsi:type="text" visible="true" required="true" sort_order="122">
+                <label translate="true">Slides per row</label>
+                <description>
+                    <![CDATA[With grid mode initialized via the rows option, this sets how many slides are in each grid row.]]>
+                </description>
+                <value>1</value>
+            </parameter>
+            <parameter name="slides_to_scroll" xsi:type="text" visible="true" required="true" sort_order="123">
+                <label translate="true">Slides to scroll</label>
+                <description><![CDATA[Slides to scroll at a time]]></description>
+                <value>1</value>
+            </parameter>
+            <parameter name="slides_to_show" xsi:type="text" visible="true" required="true" sort_order="124">
+                <label translate="true">Slides to show</label>
+                <description><![CDATA[Slides to show at a time]]></description>
+                <value>1</value>
+            </parameter>
+            <parameter name="speed" xsi:type="text" visible="true" required="true" sort_order="125">
+                <label translate="true">Speed</label>
+                <description><![CDATA[Transition speed (ms)]]></description>
+                <value>300</value>
+            </parameter>
+            <parameter name="swipe" xsi:type="select" visible="true" required="true" sort_order="126">
+                <label translate="true">Swipe</label>
+                <description><![CDATA[Enables touch swipe]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="swipe_to_slide" xsi:type="select" visible="true" required="true" sort_order="127">
+                <label translate="true">Swipe to slide</label>
+                <description><![CDATA[Swipe to slide irrespective of slidesToScroll]]></description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="touch_move" xsi:type="select" visible="true" required="true" sort_order="128">
+                <label translate="true">Touch move</label>
+                <description><![CDATA[Enables slide moving with touch]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="touch_threshold" xsi:type="text" visible="true" required="true" sort_order="129">
+                <label translate="true">Touch threshold</label>
+                <description>
+                    <![CDATA[To advance slides, the user must swipe a length of (1/touchThreshold) * the width of the slider.]]>
+                </description>
+                <value>5</value>
+            </parameter>
+            <parameter name="variable_width" xsi:type="select" visible="true" required="true" sort_order="130">
+                <label translate="true">Variable width</label>
+                <description><![CDATA[Disables automatic slide width calculation]]></description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="vertical" xsi:type="select" visible="true" required="true" sort_order="131">
+                <label translate="true">Vertical</label>
+                <description><![CDATA[Vertical slide direction]]></description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="vertical_swiping" xsi:type="select" visible="true" required="true" sort_order="132">
+                <label translate="true">Vertical swiping</label>
+                <description><![CDATA[Changes swipe direction to vertical]]></description>
+                <options>
+                    <option name="true" value="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false" selected="true">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="wait_for_animate" xsi:type="select" visible="true" required="true" sort_order="133">
+                <label translate="true">Wait for animate</label>
+                <description><![CDATA[Ignores requests to advance the slide while animating]]></description>
+                <options>
+                    <option name="true" value="true" selected="true">
+                        <label translate="true">Ture</label>
+                    </option>
+                    <option name="false" value="false">
+                        <label translate="true">False</label>
+                    </option>
+                </options>
+            </parameter>
         </parameters>
     </widget>
 </widgets>

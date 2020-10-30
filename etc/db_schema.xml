@@ -23,6 +23,8 @@
                 unsigned="true" nullable="false" identity="true"/>
         <column xsi:type="smallint" name="group_id" comment="Group ID"
                 unsigned="true" nullable="false"/>
+        <column xsi:type="boolean" name="is_active" comment="Is Active"
+                nullable="false" default="1"/>
         <column xsi:type="varchar" name="store_ids" comment="Store IDs"
                 nullable="false" length="255" default="0"/>
         <column xsi:type="smallint" name="order" comment="Sort Order"
@@ -45,6 +47,9 @@
                     referenceTable="banner_item" referenceColumn="id"/>
         <index referenceId="BANNER_ITEM_GROUP_ID" indexType="btree">
             <column name="group_id"/>
+        </index>
+        <index referenceId="BANNER_ITEM_IS_ACTIVE" indexType="btree">
+            <column name="is_active"/>
         </index>
         <index referenceId="BANNER_ITEM_STORE_ID" indexType="btree">
             <column name="store_ids"/>

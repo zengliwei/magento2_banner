@@ -13,10 +13,12 @@ $items = $block->getItems();
                     <?php if ($item->getData('type') == 'image') : ?>
                         <?php if ($item->getData('url')) : ?>
                             <a href="<?= $block->getLinkUrl($item->getData('url')) ?>">
-                                <img src="<?= $block->getMediaUrl($item->getData('media')) ?>"/>
+                                <img alt="<?= $block->escapeHtmlAttr($item->getData('title')) ?>"
+                                     src="<?= $block->escapeHtmlAttr($block->getMediaUrl($item->getData('media'))) ?>"/>
                             </a>
                         <?php else : ?>
-                            <img src="<?= $block->getMediaUrl($item->getData('media')) ?>"/>
+                            <img alt="<?= $block->escapeHtmlAttr($item->getData('title')) ?>"
+                                 src="<?= $block->escapeHtmlAttr($block->getMediaUrl($item->getData('media'))) ?>"/>
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>
@@ -33,11 +35,39 @@ $items = $block->getItems();
     <script>
         require(['jquery', 'carousel'], function ($) {
             $('[data-role="carousel"]').slick({
-                autoplay: true,
-                autoplaySpeed: 3000,
-                arrows: true,
-                dots: true,
-                infinite: true
+                accessibility: <?= $block->getData('accessibility') ?>,
+                adaptiveHeight: <?= $block->getData('adaptive_height') ?>,
+                arrows: <?= $block->getData('arrows') ?>,
+                autoplay: <?= $block->getData('autoplay') ?>,
+                autoplaySpeed: <?= $block->getData('autoplay_speed') ?>,
+                centerMode: <?= $block->getData('center_mode') ?>,
+                centerPadding: '<?= $block->getData('center_padding') ?>',
+                dots: <?= $block->getData('dots') ?>,
+                draggable: <?= $block->getData('draggable') ?>,
+                fade: <?= $block->getData('fade') ?>,
+                focusOnChange: <?= $block->getData('focus_on_change') ?>,
+                focusOnSelect: <?= $block->getData('focus_on_select') ?>,
+                infinite: <?= $block->getData('infinite') ?>,
+                initialSlide: <?= $block->getData('initial_slide') ?>,
+                lazyLoad: '<?= $block->getData('lazy_load') ?>',
+                pauseOnDotsHover: <?= $block->getData('pause_on_dots_hover') ?>,
+                pauseOnFocus: <?= $block->getData('pause_on_focus') ?>,
+                pauseOnHover: <?= $block->getData('pause_on_hover') ?>,
+                respondTo: 'min',
+                rows: <?= $block->getData('rows') ?>,
+                rtl: <?= $block->getData('rtl') ?>,
+                slidesPerRow: <?= $block->getData('slides_per_row') ?>,
+                slidesToScroll: <?= $block->getData('slides_to_scroll') ?>,
+                slidesToShow: <?= $block->getData('slides_to_show') ?>,
+                speed: <?= $block->getData('speed') ?>,
+                swipe: <?= $block->getData('swipe') ?>,
+                swipeToSlide: <?= $block->getData('swipe_to_slide') ?>,
+                touchMove: <?= $block->getData('touch_move') ?>,
+                touchThreshold: <?= $block->getData('touch_threshold') ?>,
+                variableWidth: <?= $block->getData('variable_width') ?>,
+                vertical: <?= $block->getData('vertical') ?>,
+                verticalSwiping: <?= $block->getData('vertical_swiping') ?>,
+                waitForAnimate: <?= $block->getData('wait_for_animate') ?>
             });
         });
     </script>
