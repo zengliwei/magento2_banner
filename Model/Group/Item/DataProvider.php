@@ -27,15 +27,15 @@ class DataProvider extends AbstractDataProvider
     protected $storeManager;
 
     /**
-     * @param string                 $name
+     * @param string $name
      * @param                        $primaryFieldName
      * @param                        $requestFieldName
-     * @param Filesystem             $filesystem
-     * @param StoreManagerInterface  $storeManager
+     * @param Filesystem $filesystem
+     * @param StoreManagerInterface $storeManager
      * @param DataPersistorInterface $dataPersistor
-     * @param array                  $meta
-     * @param array                  $data
-     * @param PoolInterface|null     $pool
+     * @param array $meta
+     * @param array $data
+     * @param PoolInterface|null $pool
      * @throws FileSystemException
      */
     public function __construct(
@@ -72,8 +72,11 @@ class DataProvider extends AbstractDataProvider
         $baseMediaUrl = $this->storeManager->getStore()->getBaseUrl(DirectoryList::MEDIA);
         foreach (array_keys($this->loadedData) as $id) {
             $data = &$this->loadedData[$id]['data'];
-            if (!empty($data['media'])) {
-                $filePath = $this->mediaDirectory->getAbsolutePath(Item::MEDIA_FOLDER . '/' . $data['media']);
+            if (empty($data['media'])) {
+                continue;
+            }
+            $filePath = $this->mediaDirectory->getAbsolutePath(Item::MEDIA_FOLDER . '/' . $data['media']);
+            if (is_file($filePath)) {
                 $data[$data['type']] = [
                     [
                         'name' => $data['media'],

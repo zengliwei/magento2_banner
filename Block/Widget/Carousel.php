@@ -2,8 +2,11 @@
 
 namespace Common\Banner\Block\Widget;
 
+use Common\Banner\Model\Group\Item;
 use Common\Banner\Model\ResourceModel\Group\Item\Collection;
 use Common\Banner\Model\ResourceModel\Group\Item\CollectionFactory;
+use Magento\Framework\App\Filesystem\DirectoryList;
+use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Template;
 
 class Carousel extends Template
@@ -28,8 +31,21 @@ class Carousel extends Template
     }
 
     /**
+     * @param $mediaFile
+     * @return string
+     * @throws NoSuchEntityException
+     */
+    public function getMediaUrl($mediaFile)
+    {
+        return $mediaFile
+            ? ($this->_storeManager->getStore()->getBaseUrl(DirectoryList::MEDIA)
+                . Item::MEDIA_FOLDER . '/' . $mediaFile)
+            : $this->getViewFileUrl('Common_Banner::images/default.png');
+    }
+
+    /**
      * @return Collection
-     * @throws \Magento\Framework\Exception\NoSuchEntityException
+     * @throws NoSuchEntityException
      */
     public function getItems()
     {
