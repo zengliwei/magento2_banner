@@ -28,6 +28,11 @@ use Magento\Framework\Filesystem;
 use Magento\Store\Model\StoreManagerInterface;
 use Magento\Ui\DataProvider\Modifier\PoolInterface;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class DataProvider extends AbstractDataProvider
 {
     protected $persistKey = 'banner_item';

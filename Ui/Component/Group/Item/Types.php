@@ -20,6 +20,11 @@ namespace Common\Banner\Ui\Component\Group\Item;
 
 use Magento\Framework\Data\OptionSourceInterface;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class Types implements OptionSourceInterface
 {
     /**

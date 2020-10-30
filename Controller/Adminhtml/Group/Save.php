@@ -21,6 +21,11 @@ namespace Common\Banner\Controller\Adminhtml\Group;
 use Common\Banner\Model\Group;
 use Common\Base\Controller\Adminhtml\AbstractSaveAction;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class Save extends AbstractSaveAction
 {
     /**

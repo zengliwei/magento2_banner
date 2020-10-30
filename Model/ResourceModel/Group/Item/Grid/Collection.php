@@ -24,6 +24,11 @@ use Common\Base\Model\ResourceModel\Grid\AbstractCollection;
 use Magento\Framework\Api\Search\SearchResultInterface;
 use Magento\Framework\View\Element\UiComponent\DataProvider\Document;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class Collection extends ItemCollection implements SearchResultInterface
 {
     use AbstractCollection;

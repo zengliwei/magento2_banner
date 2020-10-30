@@ -20,6 +20,11 @@ namespace Common\Banner\Model\Group;
 
 use Common\Base\Model\AbstractStoreModel;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class Item extends AbstractStoreModel
 {
     public const MEDIA_FOLDER = 'banner';

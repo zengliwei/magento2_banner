@@ -25,6 +25,11 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Template;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class Carousel extends Template
 {
     /**

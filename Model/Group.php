@@ -20,6 +20,11 @@ namespace Common\Banner\Model;
 
 use Magento\Framework\Model\AbstractModel;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class Group extends AbstractModel
 {
     /**

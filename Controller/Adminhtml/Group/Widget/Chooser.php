@@ -23,6 +23,11 @@ use Magento\Backend\Block\Template;
 use Magento\Framework\View\Result\Layout;
 use Magento\Framework\View\Result\LayoutFactory;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class Chooser extends Action
 {
     /**

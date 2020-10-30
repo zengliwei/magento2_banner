@@ -20,6 +20,11 @@ namespace Common\Banner\Controller\Adminhtml\Group;
 
 use Common\Base\Controller\Adminhtml\AbstractIndexAction;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class Index extends AbstractIndexAction
 {
     public const ADMIN_RESOURCE = 'Common_Banner::banner_group';

@@ -21,6 +21,11 @@ namespace Common\Banner\Model\Group;
 use Common\Banner\Model\ResourceModel\Group\Collection;
 use Common\Base\Model\AbstractDataProvider;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class DataProvider extends AbstractDataProvider
 {
     protected $persistKey = 'banner_group';

@@ -22,6 +22,11 @@ use Common\Banner\Model\Group\Item;
 use Common\Banner\Model\ResourceModel\Group\Item as ResourceItem;
 use Common\Base\Model\ResourceModel\AbstractStoreCollection;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class Collection extends AbstractStoreCollection
 {
     /**

@@ -28,7 +28,10 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Framework\Exception\LocalizedException;
 
 /**
- * @todo use UI components to implement when Magento supports such initialization
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @todo    use UI components to implement when Magento supports such initialization
+ * @url https://github.com/zengliwei/magento2_banner
  */
 class Chooser extends Extended
 {

@@ -20,6 +20,11 @@ namespace Common\Banner\Controller\Adminhtml\Item;
 
 use Common\Base\Controller\Adminhtml\AbstractNewAction;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class NewAction extends AbstractNewAction
 {
 }

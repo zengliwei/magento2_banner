@@ -24,6 +24,11 @@ use Common\Banner\Model\ResourceModel\Group as ResourceGroup;
 use Common\Banner\Model\ResourceModel\Group\Item as ResourceItem;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class DefaultBanner implements DataPatchInterface
 {
     /**

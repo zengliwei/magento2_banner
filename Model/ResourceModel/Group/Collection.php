@@ -22,6 +22,11 @@ use Common\Banner\Model\Group;
 use Common\Banner\Model\ResourceModel\Group as ResourceGroup;
 use Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class Collection extends AbstractCollection
 {
     /**

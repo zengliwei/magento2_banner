@@ -21,6 +21,11 @@ namespace Common\Banner\Controller\Adminhtml\Item;
 use Common\Banner\Model\Group\Item;
 use Common\Base\Controller\Adminhtml\AbstractMassSaveAction;
 
+/**
+ * @package Common\Banner
+ * @author  Zengliwei <zengliwei@163.com>
+ * @url https://github.com/zengliwei/magento2_banner
+ */
 class MassSave extends AbstractMassSaveAction
 {
     /**
