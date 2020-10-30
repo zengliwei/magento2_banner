@@ -69,10 +69,14 @@ class Carousel extends Template
      */
     public function getMediaUrl($mediaFile)
     {
-        return $mediaFile
-            ? ($this->_storeManager->getStore()->getBaseUrl(DirectoryList::MEDIA)
-                . Item::MEDIA_FOLDER . '/' . $mediaFile)
-            : $this->getViewFileUrl('Common_Banner::images/default.jpg');
+        if ($mediaFile) {
+            $mediaDirectory = $this->_filesystem->getDirectoryRead(DirectoryList::MEDIA);
+            if (is_file($mediaDirectory->getAbsolutePath(Item::MEDIA_FOLDER . '/' . $mediaFile))) {
+                return $this->_storeManager->getStore()->getBaseUrl(DirectoryList::MEDIA) .
+                    Item::MEDIA_FOLDER . '/' . $mediaFile;
+            }
+        }
+        return $this->getViewFileUrl('Common_Banner::images/default.jpg');
     }
 
     /**
