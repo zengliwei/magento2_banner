@@ -27,7 +27,7 @@
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
         </constraint>
-        <constraint xsi:type="unique" referenceId="MENU_IDENTIFIER">
+        <constraint xsi:type="unique" referenceId="BANNER_IDENTIFIER">
             <column name="identifier"/>
         </constraint>
         <index referenceId="MENU_NAME" indexType="fulltext">
