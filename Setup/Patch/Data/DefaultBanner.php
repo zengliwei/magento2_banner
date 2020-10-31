@@ -135,6 +135,12 @@ class DefaultBanner implements DataPatchInterface
                         'type'  => 'image',
                         'media' => 'home-banner-03.jpg',
                         'order' => 3
+                    ],
+                    [
+                        'title' => 'Home Banner 04',
+                        'type'  => 'video',
+                        'media' => 'home-banner-04.mp4',
+                        'order' => 4
                     ]
                 ]
             ]

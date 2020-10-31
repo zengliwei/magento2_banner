@@ -20,13 +20,14 @@ use Common\Banner\Block\Widget\Carousel;
 
 /* @var Carousel $block */
 $items = $block->getItems();
+$blockId = 'carousel-' . $block->getNameInLayout();
 ?>
 <div class="block-carousel">
-    <section class="vertical slider" data-role="carousel">
+    <section id="<?= $blockId ?>">
         <?php foreach ($items as $item): ?>
-            <div>
-                <div class="media">
-                    <?php if ($item->getData('type') == 'image') : ?>
+            <div data-type="<?= $item->getData('type') ?>">
+                <?php if ($item->getData('type') == 'image') : ?>
+                    <div class="media">
                         <?php if ($item->getData('url')) : ?>
                             <a href="<?= $block->getLinkUrl($item->getData('url')) ?>">
                                 <img alt="<?= $block->escapeHtmlAttr($item->getData('title')) ?>"
@@ -36,21 +37,26 @@ $items = $block->getItems();
                             <img alt="<?= $block->escapeHtmlAttr($item->getData('title')) ?>"
                                  src="<?= $block->escapeHtmlAttr($block->getMediaUrl($item->getData('media'))) ?>"/>
                         <?php endif; ?>
-                    <?php endif; ?>
-                </div>
-                <?php if ($item->getData('content')) : ?>
-                    <?= $item->getData('content') ?>
-                <?php else : ?>
-                    <div class="content">
-                        <strong class="title"><?= $item->getData('title') ?></strong>
                     </div>
+                    <?php if ($item->getData('content')) : ?>
+                        <?= $item->getData('content') ?>
+                    <?php else : ?>
+                        <div class="content">
+                            <strong class="title"><?= $item->getData('title') ?></strong>
+                        </div>
+                    <?php endif; ?>
+                <?php else : ?>
+                    <video muted>
+                        <source src="<?= $block->getMediaUrl($item->getData('media')) ?>"/>
+                    </video>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>
     </section>
     <script>
         require(['jquery', 'carousel'], function ($) {
-            $('[data-role="carousel"]').slick({
+            const elCarousel = $('#<?= $blockId ?>');
+            elCarousel.slick({
                 accessibility: <?= $block->getData('accessibility') ?>,
                 adaptiveHeight: <?= $block->getData('adaptive_height') ?>,
                 arrows: <?= $block->getData('arrows') ?>,
@@ -83,7 +89,33 @@ $items = $block->getItems();
                 variableWidth: <?= $block->getData('variable_width') ?>,
                 vertical: <?= $block->getData('vertical') ?>,
                 verticalSwiping: <?= $block->getData('vertical_swiping') ?>,
-                waitForAnimate: <?= $block->getData('wait_for_animate') ?>
+                waitForAnimate: <?= $block->getData('wait_for_animate') ?>,
+                responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: <?= min($block->getData('slides_to_show'), 5) ?>
+                    }
+                }, {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: <?= min($block->getData('slides_to_show'), 2) ?>
+                    }
+                }, {
+                    breakpoint: 375,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }]
+            }).on('afterChange', function (evt, slick, currentSlide, nextSlide) {
+                const elCurrentItem = $(slick.$slides[currentSlide]);
+                if (elCurrentItem.data('type') == 'video') {
+                    elCarousel.slick('slickPause');
+                    elCurrentItem.find('video')
+                        .one('ended', function () {
+                            elCarousel.slick('slickPlay');
+                        })
+                        .get(0).play();
+                }
             });
         });
     </script>
