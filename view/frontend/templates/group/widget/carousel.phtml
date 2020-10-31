@@ -27,7 +27,7 @@ $blockId = 'carousel-' . $block->getNameInLayout();
         <?php foreach ($items as $item): ?>
             <div data-type="<?= $item->getData('type') ?>">
                 <?php if ($item->getData('type') == 'image') : ?>
-                    <div class="media">
+                    <div class="image">
                         <?php if ($item->getData('url')) : ?>
                             <a href="<?= $block->getLinkUrl($item->getData('url')) ?>">
                                 <img alt="<?= $block->escapeHtmlAttr($item->getData('title')) ?>"
@@ -46,9 +46,11 @@ $blockId = 'carousel-' . $block->getNameInLayout();
                         </div>
                     <?php endif; ?>
                 <?php else : ?>
-                    <video muted>
-                        <source src="<?= $block->getMediaUrl($item->getData('media')) ?>"/>
-                    </video>
+                    <div class="video">
+                        <video muted>
+                            <source src="<?= $block->getMediaUrl($item->getData('media')) ?>"/>
+                        </video>
+                    </div>
                 <?php endif; ?>
             </div>
         <?php endforeach; ?>

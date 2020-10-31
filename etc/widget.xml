@@ -57,10 +57,10 @@
                 <label translate="true">Adaptive Height</label>
                 <description><![CDATA[Adapts slider height to the current slide]]></description>
                 <options>
-                    <option name="true" value="true">
+                    <option name="true" value="true" selected="true">
                         <label translate="true">Ture</label>
                     </option>
-                    <option name="false" value="false" selected="true">
+                    <option name="false" value="false">
                         <label translate="true">False</label>
                     </option>
                 </options>
