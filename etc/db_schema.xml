@@ -51,8 +51,10 @@
                 nullable="false" length="32" default="image"/>
         <column xsi:type="varchar" name="media" comment="Media"
                 nullable="false" length="255"/>
-        <column xsi:type="text" name="url" comment="URL"
-                nullable="true"/>
+        <column xsi:type="varchar" name="url" comment="URL"
+                nullable="true" length="255" />
+        <column xsi:type="varchar" name="target" comment="Target"
+                nullable="true" length="8"/>
         <column xsi:type="text" name="content" comment="Content"
                 nullable="false"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">

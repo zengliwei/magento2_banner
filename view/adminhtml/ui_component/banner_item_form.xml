@@ -279,6 +279,25 @@
                 <label translate="true">URL</label>
             </settings>
         </field>
+        <field name="target" formElement="select" sortOrder="700">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">data</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <dataScope>data.target</dataScope>
+                <label translate="true">Target</label>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <options class="Common\Banner\Ui\Component\Group\Item\Targets"/>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
         <field name="order" formElement="input" sortOrder="800">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

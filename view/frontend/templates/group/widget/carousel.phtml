@@ -29,7 +29,8 @@ $blockId = 'carousel-' . $block->getNameInLayout();
                 <?php if ($item->getData('type') == 'image') : ?>
                     <div class="image">
                         <?php if ($item->getData('url')) : ?>
-                            <a href="<?= $block->getLinkUrl($item->getData('url')) ?>">
+                            <a <?= $item->getData('target') ? ('target="' . $item->getData('target') . '"') : '' ?>
+                                href="<?= $block->getLinkUrl($item->getData('url')) ?>">
                                 <img alt="<?= $block->escapeHtmlAttr($item->getData('title')) ?>"
                                      src="<?= $block->escapeHtmlAttr($block->getMediaUrl($item->getData('media'))) ?>"/>
                             </a>
