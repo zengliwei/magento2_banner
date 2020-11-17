@@ -49,8 +49,8 @@ class DataProvider extends AbstractDataProvider
 
     /**
      * @param string                 $name
-     * @param                        $primaryFieldName
-     * @param                        $requestFieldName
+     * @param string                 $primaryFieldName
+     * @param string                 $requestFieldName
      * @param Filesystem             $filesystem
      * @param StoreManagerInterface  $storeManager
      * @param DataPersistorInterface $dataPersistor
