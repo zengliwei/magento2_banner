@@ -61,8 +61,8 @@
             <column name="id"/>
         </constraint>
         <constraint xsi:type="foreign" referenceId="MENU_ID" onDelete="CASCADE"
-                    table="banner_group" column="group_id"
-                    referenceTable="banner_item" referenceColumn="id"/>
+                    table="banner_item" column="group_id"
+                    referenceTable="banner_group" referenceColumn="id"/>
         <index referenceId="BANNER_ITEM_GROUP_ID" indexType="btree">
             <column name="group_id"/>
         </index>
