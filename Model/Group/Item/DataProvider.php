@@ -21,12 +21,6 @@ namespace Common\Banner\Model\Group\Item;
 use Common\Banner\Model\Group\Item;
 use Common\Banner\Model\ResourceModel\Group\Item\Collection;
 use Common\Base\Model\AbstractDataProvider;
-use Magento\Framework\App\Filesystem\DirectoryList;
-use Magento\Framework\App\Request\DataPersistorInterface;
-use Magento\Framework\Exception\FileSystemException;
-use Magento\Framework\Filesystem;
-use Magento\Store\Model\StoreManagerInterface;
-use Magento\Ui\DataProvider\Modifier\PoolInterface;
 
 /**
  * @package Common\Banner
@@ -38,67 +32,20 @@ class DataProvider extends AbstractDataProvider
     protected $persistKey = 'banner_item';
 
     /**
-     * @var Filesystem\Directory\WriteInterface
-     */
-    protected $mediaDirectory;
-
-    /**
-     * @var StoreManagerInterface
-     */
-    protected $storeManager;
-
-    /**
-     * @param string                 $name
-     * @param string                 $primaryFieldName
-     * @param string                 $requestFieldName
-     * @param Filesystem             $filesystem
-     * @param StoreManagerInterface  $storeManager
-     * @param DataPersistorInterface $dataPersistor
-     * @param array                  $meta
-     * @param array                  $data
-     * @param PoolInterface|null     $pool
-     * @throws FileSystemException
-     */
-    public function __construct(
-        $name,
-        $primaryFieldName,
-        $requestFieldName,
-        Filesystem $filesystem,
-        StoreManagerInterface $storeManager,
-        DataPersistorInterface $dataPersistor,
-        array $meta = [],
-        array $data = [],
-        PoolInterface $pool = null
-    ) {
-        parent::__construct($name, $primaryFieldName, $requestFieldName, $dataPersistor, $meta, $data, $pool);
-
-        $this->mediaDirectory = $filesystem->getDirectoryWrite(DirectoryList::MEDIA);
-        $this->storeManager = $storeManager;
-    }
-
-    /**
      * @inheritDoc
      */
     public function getData()
     {
         parent::getData();
-        $baseMediaUrl = $this->storeManager->getStore()->getBaseUrl(DirectoryList::MEDIA);
         foreach (array_keys($this->loadedData) as $id) {
             $data = &$this->loadedData[$id]['data'];
-            if (empty($data['media'])) {
-                continue;
-            }
-            $filePath = $this->mediaDirectory->getAbsolutePath(Item::MEDIA_FOLDER . '/' . $data['media']);
-            if (is_file($filePath)) {
-                $data[$data['type']] = [
-                    [
-                        'name' => $data['media'],
-                        'file' => $data['media'],
-                        'url'  => $baseMediaUrl . Item::MEDIA_FOLDER . '/' . $data['media'],
-                        'size' => filesize($filePath),
-                        'type' => $data['type'] == 'image' ? getImageSize($filePath)['mime'] : 'video/mp4'
-                    ]
-                ];
+            if (!empty($data['media'])) {
+                $data[$data['type']] = $this->prepareFileData(
+                    $data,
+                    'media',
+                    Item::MEDIA_FOLDER,
+                    $data['type'] == 'video' ? 'video/mp4' : null
+                );
             }
         }
         return $this->loadedData;
