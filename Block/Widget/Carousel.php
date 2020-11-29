@@ -21,6 +21,7 @@ namespace Common\Banner\Block\Widget;
 use Common\Banner\Model\Group\Item;
 use Common\Banner\Model\ResourceModel\Group\Item\Collection;
 use Common\Banner\Model\ResourceModel\Group\Item\CollectionFactory;
+use Magento\Cms\Model\Template\FilterProvider;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Template;
@@ -38,17 +39,35 @@ class Carousel extends Template
     protected $collectionFactory;
 
     /**
+     * @var FilterProvider
+     */
+    protected $filterProvider;
+
+    /**
      * @param CollectionFactory $collectionFactory
+     * @param FilterProvider    $filterProvider
      * @param Template\Context  $context
      * @param array             $data
      */
     public function __construct(
         CollectionFactory $collectionFactory,
+        FilterProvider $filterProvider,
         Template\Context $context,
         array $data = []
     ) {
         $this->collectionFactory = $collectionFactory;
+        $this->filterProvider = $filterProvider;
         parent::__construct($context, $data);
+    }
+
+    /**
+     * @param string $content
+     * @return string
+     * @throws \Exception
+     */
+    public function filterContent($content)
+    {
+        return $this->filterProvider->getBlockFilter()->filter($content);
     }
 
     /**

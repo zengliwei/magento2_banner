@@ -40,7 +40,7 @@ $blockId = 'carousel-' . $block->getNameInLayout();
                         <?php endif; ?>
                     </div>
                     <?php if ($item->getData('content')) : ?>
-                        <?= $item->getData('content') ?>
+                        <?= $block->filterContent($item->getData('content')) ?>
                     <?php else : ?>
                         <div class="content">
                             <strong class="title"><?= $item->getData('title') ?></strong>
