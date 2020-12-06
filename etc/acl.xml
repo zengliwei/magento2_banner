@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Common_Banner::banner" title="Banner" translate="title" sortOrder="30">
+                    <resource id="Common_Banner::banner_group" title="Banner Groups" translate="title" sortOrder="10"/>
+                    <resource id="Common_Banner::banner_item" title="Banner Items" translate="title" sortOrder="20"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
