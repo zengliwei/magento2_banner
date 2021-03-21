@@ -25,13 +25,14 @@ use Magento\Cms\Model\Template\FilterProvider;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\View\Element\Template;
+use Magento\Widget\Block\BlockInterface;
 
 /**
  * @package Common\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @url https://github.com/zengliwei/magento2_banner
  */
-class Carousel extends Template
+class Carousel extends Template implements BlockInterface
 {
     /**
      * @var CollectionFactory
