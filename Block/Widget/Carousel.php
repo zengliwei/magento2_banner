@@ -34,15 +34,8 @@ use Magento\Widget\Block\BlockInterface;
  */
 class Carousel extends Template implements BlockInterface
 {
-    /**
-     * @var CollectionFactory
-     */
-    protected $collectionFactory;
-
-    /**
-     * @var FilterProvider
-     */
-    protected $filterProvider;
+    protected CollectionFactory $collectionFactory;
+    protected FilterProvider $filterProvider;
 
     /**
      * @param CollectionFactory $collectionFactory

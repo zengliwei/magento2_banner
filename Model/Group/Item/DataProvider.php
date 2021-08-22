@@ -29,7 +29,7 @@ use Common\Base\Model\AbstractDataProvider;
  */
 class DataProvider extends AbstractDataProvider
 {
-    protected $persistKey = 'banner_item';
+    protected string $persistKey = 'banner_item';
 
     /**
      * @inheritDoc
