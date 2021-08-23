@@ -16,19 +16,19 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Common\Banner\Controller\Adminhtml\Item;
+namespace CrazyCat\Banner\Controller\Adminhtml\Item;
 
-use Common\Banner\Model\Group\Item;
-use Common\Base\Controller\Adminhtml\AbstractEditAction;
+use CrazyCat\Banner\Model\Group\Item;
+use CrazyCat\Base\Controller\Adminhtml\AbstractEditAction;
 
 /**
- * @package Common\Banner
+ * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @url https://github.com/zengliwei/magento2_banner
  */
 class Edit extends AbstractEditAction
 {
-    public const ADMIN_RESOURCE = 'Common_Banner::banner_item';
+    public const ADMIN_RESOURCE = 'CrazyCat_Banner::banner_item';
 
     /**
      * @inheritDoc
@@ -38,7 +38,7 @@ class Edit extends AbstractEditAction
         return $this->render(
             Item::class,
             'Specified item does not exist.',
-            'Common_Banner::banner_item',
+            'CrazyCat_Banner::banner_item',
             'Create Banner Item',
             'Edit Banner Item (ID: %1)'
         );

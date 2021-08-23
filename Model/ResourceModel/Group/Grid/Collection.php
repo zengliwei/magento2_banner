@@ -16,16 +16,16 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Common\Banner\Model\ResourceModel\Group\Grid;
+namespace CrazyCat\Banner\Model\ResourceModel\Group\Grid;
 
-use Common\Banner\Model\ResourceModel\Group as ResourceGroup;
-use Common\Banner\Model\ResourceModel\Group\Collection as GroupCollection;
-use Common\Base\Model\ResourceModel\Grid\AbstractCollection;
+use CrazyCat\Banner\Model\ResourceModel\Group as ResourceGroup;
+use CrazyCat\Banner\Model\ResourceModel\Group\Collection as GroupCollection;
+use CrazyCat\Base\Model\ResourceModel\Grid\AbstractCollection;
 use Magento\Framework\Api\Search\SearchResultInterface;
 use Magento\Framework\View\Element\UiComponent\DataProvider\Document;
 
 /**
- * @package Common\Banner
+ * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @url https://github.com/zengliwei/magento2_banner
  */

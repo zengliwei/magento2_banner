@@ -16,13 +16,13 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Common\Banner\Controller\Adminhtml\Group;
+namespace CrazyCat\Banner\Controller\Adminhtml\Group;
 
-use Common\Banner\Model\Group;
-use Common\Base\Controller\Adminhtml\AbstractDeleteAction;
+use CrazyCat\Banner\Model\Group;
+use CrazyCat\Base\Controller\Adminhtml\AbstractDeleteAction;
 
 /**
- * @package Common\Banner
+ * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @url https://github.com/zengliwei/magento2_banner
  */

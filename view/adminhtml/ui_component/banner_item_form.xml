@@ -100,7 +100,7 @@
         <settings>
             <submitUrl path="banner/item/save"/>
         </settings>
-        <dataProvider class="Common\Banner\Model\Group\Item\DataProvider"
+        <dataProvider class="CrazyCat\Banner\Model\Group\Item\DataProvider"
                       name="banner_item_form_data_provider">
             <settings>
                 <requestFieldName>id</requestFieldName>
@@ -221,7 +221,7 @@
             <formElements>
                 <select>
                     <settings>
-                        <options class="Common\Banner\Ui\Component\Group\Item\Types"/>
+                        <options class="CrazyCat\Banner\Ui\Component\Group\Item\Types"/>
                     </settings>
                 </select>
             </formElements>
@@ -293,7 +293,7 @@
             <formElements>
                 <select>
                     <settings>
-                        <options class="Common\Banner\Ui\Component\Group\Item\Targets"/>
+                        <options class="CrazyCat\Banner\Ui\Component\Group\Item\Targets"/>
                     </settings>
                 </select>
             </formElements>
@@ -332,7 +332,7 @@
             <formElements>
                 <multiselect>
                     <settings>
-                        <options class="Common\Base\Ui\Component\Store\Options"/>
+                        <options class="CrazyCat\Base\Ui\Component\Store\Options"/>
                     </settings>
                 </multiselect>
             </formElements>
@@ -354,7 +354,7 @@
             <formElements>
                 <select>
                     <settings>
-                        <options class="Common\Banner\Model\ResourceModel\Group\Collection"/>
+                        <options class="CrazyCat\Banner\Model\ResourceModel\Group\Collection"/>
                     </settings>
                 </select>
             </formElements>

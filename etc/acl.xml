@@ -4,9 +4,9 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Common_Banner::banner" title="Banner" translate="title" sortOrder="30">
-                    <resource id="Common_Banner::banner_group" title="Banner Groups" translate="title" sortOrder="10"/>
-                    <resource id="Common_Banner::banner_item" title="Banner Items" translate="title" sortOrder="20"/>
+                <resource id="CrazyCat_Banner::banner" title="Banner" translate="title" sortOrder="30">
+                    <resource id="CrazyCat_Banner::banner_group" title="Banner Groups" translate="title" sortOrder="10"/>
+                    <resource id="CrazyCat_Banner::banner_item" title="Banner Items" translate="title" sortOrder="20"/>
                 </resource>
             </resource>
         </resources>

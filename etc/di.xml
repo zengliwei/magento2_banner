@@ -21,10 +21,10 @@
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="banner_group_listing_data_provider" xsi:type="string">
-                    Common\Banner\Model\ResourceModel\Group\Grid\Collection
+                    CrazyCat\Banner\Model\ResourceModel\Group\Grid\Collection
                 </item>
                 <item name="banner_item_listing_data_provider" xsi:type="string">
-                    Common\Banner\Model\ResourceModel\Group\Item\Grid\Collection
+                    CrazyCat\Banner\Model\ResourceModel\Group\Item\Grid\Collection
                 </item>
             </argument>
         </arguments>

@@ -16,11 +16,11 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Common\Banner\Block\Adminhtml\Group\Widget;
+namespace CrazyCat\Banner\Block\Adminhtml\Group\Widget;
 
-use Common\Banner\Model\GroupFactory;
-use Common\Banner\Model\ResourceModel\Group as ResourceGroup;
-use Common\Banner\Model\ResourceModel\Group\CollectionFactory;
+use CrazyCat\Banner\Model\GroupFactory;
+use CrazyCat\Banner\Model\ResourceModel\Group as ResourceGroup;
+use CrazyCat\Banner\Model\ResourceModel\Group\CollectionFactory;
 use Magento\Backend\Block\Template\Context;
 use Magento\Backend\Block\Widget\Grid\Extended;
 use Magento\Backend\Helper\Data;
@@ -28,7 +28,7 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Framework\Exception\LocalizedException;
 
 /**
- * @package Common\Banner
+ * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @todo    use UI components to implement when Magento supports such initialization
  * @url https://github.com/zengliwei/magento2_banner

@@ -16,14 +16,14 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Common\Banner\Model\ResourceModel\Group\Item;
+namespace CrazyCat\Banner\Model\ResourceModel\Group\Item;
 
-use Common\Banner\Model\Group\Item;
-use Common\Banner\Model\ResourceModel\Group\Item as ResourceItem;
-use Common\Base\Model\ResourceModel\AbstractStoreCollection;
+use CrazyCat\Banner\Model\Group\Item;
+use CrazyCat\Banner\Model\ResourceModel\Group\Item as ResourceItem;
+use CrazyCat\Base\Model\ResourceModel\AbstractStoreCollection;
 
 /**
- * @package Common\Banner
+ * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @url https://github.com/zengliwei/magento2_banner
  */

@@ -42,7 +42,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>Common_Menu::banner_group</aclResource>
+        <aclResource>CrazyCat_Menu::banner_group</aclResource>
         <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
                       name="banner_group_listing_data_provider">
             <settings>
@@ -111,7 +111,7 @@
                 <label translate="true">Identifier</label>
             </settings>
         </column>
-        <actionsColumn name="actions" class="Common\Base\Ui\Component\Listing\Column\Actions">
+        <actionsColumn name="actions" class="CrazyCat\Base\Ui\Component\Listing\Column\Actions">
             <settings>
                 <fieldAction>
                     <params>

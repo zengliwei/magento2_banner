@@ -16,11 +16,11 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Common\Banner\Block\Widget;
+namespace CrazyCat\Banner\Block\Widget;
 
-use Common\Banner\Model\Group\Item;
-use Common\Banner\Model\ResourceModel\Group\Item\Collection;
-use Common\Banner\Model\ResourceModel\Group\Item\CollectionFactory;
+use CrazyCat\Banner\Model\Group\Item;
+use CrazyCat\Banner\Model\ResourceModel\Group\Item\Collection;
+use CrazyCat\Banner\Model\ResourceModel\Group\Item\CollectionFactory;
 use Magento\Cms\Model\Template\FilterProvider;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Exception\NoSuchEntityException;
@@ -28,7 +28,7 @@ use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 
 /**
- * @package Common\Banner
+ * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @url https://github.com/zengliwei/magento2_banner
  */
@@ -89,7 +89,7 @@ class Carousel extends Template implements BlockInterface
                     Item::MEDIA_FOLDER . '/' . $mediaFile;
             }
         }
-        return $this->getViewFileUrl('Common_Banner::images/default.jpg');
+        return $this->getViewFileUrl('CrazyCat_Banner::images/default.jpg');
     }
 
     /**

@@ -18,7 +18,7 @@
 <layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
     <container name="root" label="Root">
-        <block class="Common\Banner\Block\Adminhtml\Group\Widget\Chooser"
+        <block class="CrazyCat\Banner\Block\Adminhtml\Group\Widget\Chooser"
                name="banner.group.widget.chooser"/>
     </container>
 </layout>

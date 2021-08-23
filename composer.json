@@ -1,0 +1,21 @@
+{
+    "name": "crazycat/module-magento2-banner",
+    "description": "A Magento 2 module that use to manage the banners",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "php": "~7.4.0",
+        "magento/framework": "~100.0.4"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "CrazyCat\\Banner\\": ""
+        }
+    }
+}

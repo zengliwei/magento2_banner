@@ -18,4 +18,4 @@
 
 use Magento\Framework\Component\ComponentRegistrar;
 
-ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Common_Banner', __DIR__);
+ComponentRegistrar::register(ComponentRegistrar::MODULE, 'CrazyCat_Banner', __DIR__);

@@ -17,13 +17,13 @@
   -->
 <widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
-    <widget class="Common\Banner\Block\Widget\Carousel" id="banner_carousel">
+    <widget class="CrazyCat\Banner\Block\Widget\Carousel" id="banner_carousel">
         <label translate="true">Banner Carousel</label>
         <description translate="true">Carousel of a Banner Group</description>
         <parameters>
             <parameter name="group_id" xsi:type="block" visible="true" required="true" sort_order="10">
                 <label translate="true">Banner Group</label>
-                <block class="Common\Banner\Block\Adminhtml\Group\Widget\Chooser">
+                <block class="CrazyCat\Banner\Block\Adminhtml\Group\Widget\Chooser">
                     <data>
                         <item name="button" xsi:type="array">
                             <item name="open" xsi:type="string" translate="true">Select a Group</item>

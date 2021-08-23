@@ -16,12 +16,12 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Common\Banner\Model\Group;
+namespace CrazyCat\Banner\Model\Group;
 
-use Common\Base\Model\AbstractStoreModel;
+use CrazyCat\Base\Model\AbstractStoreModel;
 
 /**
- * @package Common\Banner
+ * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @url https://github.com/zengliwei/magento2_banner
  */
@@ -34,6 +34,6 @@ class Item extends AbstractStoreModel
      */
     protected function _construct()
     {
-        $this->_init(\Common\Banner\Model\ResourceModel\Group\Item::class);
+        $this->_init(\CrazyCat\Banner\Model\ResourceModel\Group\Item::class);
     }
 }

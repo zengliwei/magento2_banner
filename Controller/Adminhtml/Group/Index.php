@@ -16,18 +16,18 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Common\Banner\Controller\Adminhtml\Group;
+namespace CrazyCat\Banner\Controller\Adminhtml\Group;
 
-use Common\Base\Controller\Adminhtml\AbstractIndexAction;
+use CrazyCat\Base\Controller\Adminhtml\AbstractIndexAction;
 
 /**
- * @package Common\Banner
+ * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @url https://github.com/zengliwei/magento2_banner
  */
 class Index extends AbstractIndexAction
 {
-    public const ADMIN_RESOURCE = 'Common_Banner::banner_group';
+    public const ADMIN_RESOURCE = 'CrazyCat_Banner::banner_group';
 
     /**
      * @inheritDoc
@@ -36,7 +36,7 @@ class Index extends AbstractIndexAction
     {
         return $this->render(
             'banner_group',
-            'Common_Banner::banner_group',
+            'CrazyCat_Banner::banner_group',
             'Banner Groups'
         );
     }

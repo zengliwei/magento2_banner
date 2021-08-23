@@ -16,13 +16,13 @@
  * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-namespace Common\Banner\Setup\Patch\Data;
+namespace CrazyCat\Banner\Setup\Patch\Data;
 
-use Common\Banner\Model\Group\Item;
-use Common\Banner\Model\Group\ItemFactory;
-use Common\Banner\Model\GroupFactory;
-use Common\Banner\Model\ResourceModel\Group as ResourceGroup;
-use Common\Banner\Model\ResourceModel\Group\Item as ResourceItem;
+use CrazyCat\Banner\Model\Group\Item;
+use CrazyCat\Banner\Model\Group\ItemFactory;
+use CrazyCat\Banner\Model\GroupFactory;
+use CrazyCat\Banner\Model\ResourceModel\Group as ResourceGroup;
+use CrazyCat\Banner\Model\ResourceModel\Group\Item as ResourceItem;
 use Magento\Framework\App\Area;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\App\State;
@@ -33,7 +33,7 @@ use Magento\Widget\Model\ResourceModel\Widget\Instance as ResourceWidget;
 use Magento\Widget\Model\Widget\InstanceFactory as WidgetFactory;
 
 /**
- * @package Common\Banner
+ * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @url https://github.com/zengliwei/magento2_banner
  */
@@ -162,7 +162,7 @@ class DefaultBanner implements DataPatchInterface
                     ]
                 ],
                 'widget' => [
-                    'instance_type'     => 'Common\Banner\Block\Widget\Carousel',
+                    'instance_type'     => 'CrazyCat\Banner\Block\Widget\Carousel',
                     'theme_id'          => 3, // todo :: change
                     'title'             => 'Home Banner',
                     'store_ids'         => [0],
@@ -195,7 +195,7 @@ class DefaultBanner implements DataPatchInterface
                 $item = $this->itemFactory->create();
                 $this->resourceItem->save($item->setData($itemData));
                 if (!is_file($mediaDir . '/' . $itemData['media'])) {
-                    $asset = $this->assetRepository->createAsset('Common_Banner::images/' . $itemData['media']);
+                    $asset = $this->assetRepository->createAsset('CrazyCat_Banner::images/' . $itemData['media']);
                     copy($asset->getSourceFile(), $mediaDir . '/' . $itemData['media']);
                 }
             }

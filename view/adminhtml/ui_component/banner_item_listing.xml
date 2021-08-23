@@ -42,7 +42,7 @@
             </storageConfig>
             <updateUrl path="mui/index/render"/>
         </settings>
-        <aclResource>Common_Menu::banner_item</aclResource>
+        <aclResource>CrazyCat_Menu::banner_item</aclResource>
         <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider"
                       name="banner_item_listing_data_provider">
             <settings>
@@ -72,7 +72,7 @@
             <filterSelect name="store_ids" provider="${ $.parentName }">
                 <settings>
                     <captionValue>0</captionValue>
-                    <options class="Common\Base\Ui\Component\Store\Options"/>
+                    <options class="CrazyCat\Base\Ui\Component\Store\Options"/>
                     <label translate="true">Store View</label>
                     <dataScope>store_ids</dataScope>
                     <imports>
@@ -173,7 +173,7 @@
                 <filter>select</filter>
                 <dataType>select</dataType>
                 <label translate="true">Group</label>
-                <options class="Common\Banner\Model\ResourceModel\Group\Collection"/>
+                <options class="CrazyCat\Banner\Model\ResourceModel\Group\Collection"/>
             </settings>
         </column>
         <column name="store_ids" class="Magento\Store\Ui\Component\Listing\Column\Store">
@@ -184,7 +184,7 @@
                 <sortable>false</sortable>
             </settings>
         </column>
-        <actionsColumn name="actions" class="Common\Base\Ui\Component\Listing\Column\Actions">
+        <actionsColumn name="actions" class="CrazyCat\Base\Ui\Component\Listing\Column\Actions">
             <settings>
                 <fieldAction>
                     <params>

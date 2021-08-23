@@ -100,7 +100,7 @@
         <settings>
             <submitUrl path="banner/group/save"/>
         </settings>
-        <dataProvider class="Common\Banner\Model\Group\DataProvider"
+        <dataProvider class="CrazyCat\Banner\Model\Group\DataProvider"
                       name="banner_group_form_data_provider">
             <settings>
                 <requestFieldName>id</requestFieldName>
