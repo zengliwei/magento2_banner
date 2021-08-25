@@ -20,7 +20,7 @@ use CrazyCat\Banner\Block\Widget\Carousel;
 
 /* @var Carousel $block */
 $items = $block->getItems();
-$blockId = 'carousel-' . $block->getNameInLayout();
+$blockId = 'carousel-' . md5($block->getNameInLayout());
 ?>
 <div class="block-carousel">
     <section id="<?= $blockId ?>">
