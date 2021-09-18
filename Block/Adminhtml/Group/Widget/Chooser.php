@@ -1,19 +1,7 @@
 <?php
 /**
  * Copyright (c) Zengliwei. All rights reserved.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
- * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
- * Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
- * WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFINGEMENT. IN NO EVENT SHALL THE AUTHORS
- * OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
- * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * Each source file in this distribution is licensed under OSL 3.0, see LICENSE for details.
  */
 
 namespace CrazyCat\Banner\Block\Adminhtml\Group\Widget;
@@ -28,7 +16,6 @@ use Magento\Framework\Data\Form\Element\AbstractElement;
 use Magento\Framework\Exception\LocalizedException;
 
 /**
- * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @todo    use UI components to implement when Magento supports such initialization
  * @url https://github.com/zengliwei/magento2_banner
@@ -50,6 +37,14 @@ class Chooser extends Extended
      */
     private $resourceGroup;
 
+    /**
+     * @param CollectionFactory $collectionFactory
+     * @param GroupFactory      $groupFactory
+     * @param ResourceGroup     $resourceGroup
+     * @param Context           $context
+     * @param Data              $backendHelper
+     * @param array             $data
+     */
     public function __construct(
         CollectionFactory $collectionFactory,
         GroupFactory $groupFactory,
@@ -92,6 +87,8 @@ EOF;
     }
 
     /**
+     * Prepare element HTML
+     *
      * @param AbstractElement $element
      * @return AbstractElement
      * @throws LocalizedException
@@ -104,11 +101,11 @@ EOF;
         $uid = $this->mathRandom->getUniqueHash($element->getId());
         $block->addData(
             [
-                'element'     => $element,
-                'uniq_id'     => $uid,
-                'config'      => $this->getData('config'),
+                'element' => $element,
+                'uniq_id' => $uid,
+                'config' => $this->getData('config'),
                 'fieldset_id' => $this->getData('fieldset_id'),
-                'source_url'  => $this->getUrl('banner/group_widget/chooser', ['uid' => $uid])
+                'source_url' => $this->getUrl('banner/group_widget/chooser', ['uid' => $uid])
             ]
         );
         if (($id = $element->getData('value'))) {

@@ -1,19 +1,7 @@
 <?php
 /**
  * Copyright (c) Zengliwei. All rights reserved.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
- * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
- * Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
- * WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFINGEMENT. IN NO EVENT SHALL THE AUTHORS
- * OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
- * OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * Each source file in this distribution is licensed under OSL 3.0, see LICENSE for details.
  */
 
 namespace CrazyCat\Banner\Block\Widget;
@@ -24,47 +12,67 @@ use CrazyCat\Banner\Model\ResourceModel\Group\Item\CollectionFactory;
 use Magento\Cms\Model\Template\FilterProvider;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Exception\NoSuchEntityException;
+use Magento\Framework\Filesystem\DriverInterface;
 use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Element\Text;
 use Magento\Widget\Block\BlockInterface;
 
 /**
- * @package CrazyCat\Banner
  * @author  Zengliwei <zengliwei@163.com>
  * @url https://github.com/zengliwei/magento2_banner
  */
 class Carousel extends Template implements BlockInterface
 {
-    protected CollectionFactory $collectionFactory;
-    protected FilterProvider $filterProvider;
+    /**
+     * @var CollectionFactory
+     */
+    protected $collectionFactory;
+
+    /**
+     * @var DriverInterface
+     */
+    private $driver;
+
+    /**
+     * @var FilterProvider
+     */
+    protected $filterProvider;
 
     /**
      * @param CollectionFactory $collectionFactory
+     * @param DriverInterface   $driver
      * @param FilterProvider    $filterProvider
      * @param Template\Context  $context
      * @param array             $data
      */
     public function __construct(
         CollectionFactory $collectionFactory,
+        DriverInterface $driver,
         FilterProvider $filterProvider,
         Template\Context $context,
         array $data = []
     ) {
         $this->collectionFactory = $collectionFactory;
+        $this->driver = $driver;
         $this->filterProvider = $filterProvider;
         parent::__construct($context, $data);
     }
 
     /**
-     * @param string $content
-     * @return string
-     * @throws \Exception
+     * @inheritDoc
      */
-    public function filterContent($content)
+    protected function _toHtml()
     {
-        return $this->filterProvider->getBlockFilter()->filter($content);
+        /** @var $blockDesc Text */
+        $blockDesc = $this->addChild('description', Text::class);
+        $blockDesc->setText($this->filterProvider->getBlockFilter()->filter($this->getDataByKey('description')));
+
+        return parent::_toHtml();
     }
 
     /**
+     * Get link URL
+     *
      * @param string $url
      * @return string
      */
@@ -76,6 +84,8 @@ class Carousel extends Template implements BlockInterface
     }
 
     /**
+     * Get media URL
+     *
      * @param string $mediaFile
      * @return string
      * @throws NoSuchEntityException
@@ -84,7 +94,7 @@ class Carousel extends Template implements BlockInterface
     {
         if ($mediaFile) {
             $mediaDirectory = $this->_filesystem->getDirectoryRead(DirectoryList::MEDIA);
-            if (is_file($mediaDirectory->getAbsolutePath(Item::MEDIA_FOLDER . '/' . $mediaFile))) {
+            if ($this->driver->isFile($mediaDirectory->getAbsolutePath(Item::MEDIA_FOLDER . '/' . $mediaFile))) {
                 return $this->_storeManager->getStore()->getBaseUrl(DirectoryList::MEDIA) .
                     Item::MEDIA_FOLDER . '/' . $mediaFile;
             }
@@ -93,6 +103,8 @@ class Carousel extends Template implements BlockInterface
     }
 
     /**
+     * Get items
+     *
      * @return Collection
      * @throws NoSuchEntityException
      */
