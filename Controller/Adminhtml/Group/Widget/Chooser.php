@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2021 Zengliwei. All rights reserved.
+ * Copyright (c) Zengliwei. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
@@ -52,8 +52,8 @@ class Chooser extends Action
      */
     public function execute()
     {
-        /* @var Layout $resultLayout */
-        /* @var Template $block */
+        /** @var Layout $resultLayout */
+        /** @var Template $block */
         $resultLayout = $this->layoutFactory->create();
         $block = $resultLayout->getLayout()->getBlock('banner.group.widget.chooser');
         $block->setData('id', $this->getRequest()->getParam('uid'));

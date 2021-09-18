@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2021 Zengliwei. All rights reserved.
+ * Copyright (c) Zengliwei. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
@@ -99,7 +99,7 @@ EOF;
      */
     public function prepareElementHtml(AbstractElement $element)
     {
-        /* @var \Magento\Widget\Block\Adminhtml\Widget\Chooser $block */
+        /** @var \Magento\Widget\Block\Adminhtml\Widget\Chooser $block */
         $block = $this->getLayout()->createBlock(\Magento\Widget\Block\Adminhtml\Widget\Chooser::class);
         $uid = $this->mathRandom->getUniqueHash($element->getId());
         $block->addData(

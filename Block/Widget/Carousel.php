@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (c) 2021 Zengliwei. All rights reserved.
+ * Copyright (c) Zengliwei. All rights reserved.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
  * documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
@@ -98,7 +98,7 @@ class Carousel extends Template implements BlockInterface
      */
     public function getItems()
     {
-        /* @var Collection $collection */
+        /** @var Collection $collection */
         $collection = $this->collectionFactory->create();
         $collection->addStoreFilter($this->_storeManager->getStore())
             ->addFieldToFilter('group_id', ['eq' => $this->getData('group_id')])
