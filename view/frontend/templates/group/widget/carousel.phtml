@@ -11,33 +11,38 @@ $items = $block->getItems();
 $blockId = 'carousel-' . $block->getJsId();
 ?>
 <div class="block-carousel">
-    <section id="<?= $blockId ?>">
-        <?php foreach ($items as $item): ?>
-            <div data-type="<?= $item->getData('type') ?>">
-                <?php if ($item->getData('type') == 'image') : ?>
+    <section id="<?= $block->escapeHtmlAttr($blockId) ?>">
+        <?php
+        foreach ($items as $item):
+            $target = $item->getDataByKey('target') ?: '_self';
+            ?>
+            <div data-type="<?= $block->escapeHtmlAttr($item->getDataByKey('type')) ?>">
+                <?php if ($item->getDataByKey('type') == 'image'): ?>
                     <div class="image">
-                        <?php if ($item->getData('url')) : ?>
-                            <a <?= $item->getData('target') ? ('target="' . $item->getData('target') . '"') : '' ?>
-                                href="<?= $block->getLinkUrl($item->getData('url')) ?>">
-                                <img alt="<?= $block->escapeHtmlAttr($item->getData('title')) ?>"
-                                     src="<?= $block->escapeHtmlAttr($block->getMediaUrl($item->getData('media'))) ?>"/>
+                        <?php if ($item->getDataByKey('url')): ?>
+                            <a target="<?= $block->escapeHtmlAttr($target) ?>"
+                               href="<?= $block->escapeUrl($block->getLinkUrl($item->getDataByKey('url'))) ?>">
+                                <img alt="<?= $block->escapeHtmlAttr($item->getDataByKey('title')) ?>"
+                                     src="<?= $block->escapeUrl($block->getMediaUrl($item->getDataByKey('media'))) ?>"/>
                             </a>
-                        <?php else : ?>
-                            <img alt="<?= $block->escapeHtmlAttr($item->getData('title')) ?>"
-                                 src="<?= $block->escapeHtmlAttr($block->getMediaUrl($item->getData('media'))) ?>"/>
+                        <?php else: ?>
+                            <img alt="<?= $block->escapeHtmlAttr($item->getDataByKey('title')) ?>"
+                                 src="<?= $block->escapeUrl($block->getMediaUrl($item->getDataByKey('media'))) ?>"/>
                         <?php endif; ?>
                     </div>
-                    <?php if ($item->getData('content')) : ?>
-                        <?= $block->filterContent($item->getData('content')) ?>
-                    <?php else : ?>
+                    <?php if ($item->getDataByKey('content')): ?>
+                        <div class="wysiwyg">
+                            <?= $block->filterContent($item->getDataByKey('content')) ?>
+                        </div>
+                    <?php else: ?>
                         <div class="content">
-                            <strong class="title"><?= $item->getData('title') ?></strong>
+                            <strong class="title"><?= $block->escapeHtml($item->getDataByKey('title')) ?></strong>
                         </div>
                     <?php endif; ?>
-                <?php else : ?>
+                <?php else: ?>
                     <div class="video">
                         <video muted>
-                            <source src="<?= $block->getMediaUrl($item->getData('media')) ?>"/>
+                            <source src="<?= $block->escapeUrl($block->getMediaUrl($item->getDataByKey('media'))) ?>"/>
                         </video>
                     </div>
                 <?php endif; ?>
@@ -46,50 +51,50 @@ $blockId = 'carousel-' . $block->getJsId();
     </section>
     <script>
         require(['jquery', 'carousel'], function ($) {
-            const elCarousel = $('#<?= $blockId ?>');
+            const elCarousel = $('#<?= $block->escapeHtmlAttr($blockId) ?>');
             elCarousel.slick({
-                accessibility: <?= $block->getData('accessibility') ?>,
-                adaptiveHeight: <?= $block->getData('adaptive_height') ?>,
-                arrows: <?= $block->getData('arrows') ?>,
-                autoplay: <?= $block->getData('autoplay') ?>,
-                autoplaySpeed: <?= $block->getData('autoplay_speed') ?>,
-                centerMode: <?= $block->getData('center_mode') ?>,
-                centerPadding: '<?= $block->getData('center_padding') ?>',
-                dots: <?= $block->getData('dots') ?>,
-                draggable: <?= $block->getData('draggable') ?>,
-                fade: <?= $block->getData('fade') ?>,
-                focusOnChange: <?= $block->getData('focus_on_change') ?>,
-                focusOnSelect: <?= $block->getData('focus_on_select') ?>,
-                infinite: <?= $block->getData('infinite') ?>,
-                initialSlide: <?= $block->getData('initial_slide') ?>,
-                lazyLoad: '<?= $block->getData('lazy_load') ?>',
-                pauseOnDotsHover: <?= $block->getData('pause_on_dots_hover') ?>,
-                pauseOnFocus: <?= $block->getData('pause_on_focus') ?>,
-                pauseOnHover: <?= $block->getData('pause_on_hover') ?>,
+                accessibility: <?= $block->escapeJs($block->getDataByKey('accessibility')) ?>,
+                adaptiveHeight: <?= $block->escapeJs($block->getDataByKey('adaptive_height')) ?>,
+                arrows: <?= $block->escapeJs($block->getDataByKey('arrows')) ?>,
+                autoplay: <?= $block->escapeJs($block->getDataByKey('autoplay')) ?>,
+                autoplaySpeed: <?= $block->escapeJs($block->getDataByKey('autoplay_speed')) ?>,
+                centerMode: <?= $block->escapeJs($block->getDataByKey('center_mode')) ?>,
+                centerPadding: '<?= $block->escapeJs($block->getDataByKey('center_padding')) ?>',
+                dots: <?= $block->escapeJs($block->getDataByKey('dots')) ?>,
+                draggable: <?= $block->escapeJs($block->getDataByKey('draggable')) ?>,
+                fade: <?= $block->escapeJs($block->getDataByKey('fade')) ?>,
+                focusOnChange: <?= $block->escapeJs($block->getDataByKey('focus_on_change')) ?>,
+                focusOnSelect: <?= $block->escapeJs($block->getDataByKey('focus_on_select')) ?>,
+                infinite: <?= $block->escapeJs($block->getDataByKey('infinite')) ?>,
+                initialSlide: <?= $block->escapeJs($block->getDataByKey('initial_slide')) ?>,
+                lazyLoad: '<?= $block->escapeJs($block->getDataByKey('lazy_load')) ?>',
+                pauseOnDotsHover: <?= $block->escapeJs($block->getDataByKey('pause_on_dots_hover')) ?>,
+                pauseOnFocus: <?= $block->escapeJs($block->getDataByKey('pause_on_focus')) ?>,
+                pauseOnHover: <?= $block->escapeJs($block->getDataByKey('pause_on_hover')) ?>,
                 respondTo: 'min',
-                rows: <?= $block->getData('rows') ?>,
-                rtl: <?= $block->getData('rtl') ?>,
-                slidesPerRow: <?= $block->getData('slides_per_row') ?>,
-                slidesToScroll: <?= $block->getData('slides_to_scroll') ?>,
-                slidesToShow: <?= $block->getData('slides_to_show') ?>,
-                speed: <?= $block->getData('speed') ?>,
-                swipe: <?= $block->getData('swipe') ?>,
-                swipeToSlide: <?= $block->getData('swipe_to_slide') ?>,
-                touchMove: <?= $block->getData('touch_move') ?>,
-                touchThreshold: <?= $block->getData('touch_threshold') ?>,
-                variableWidth: <?= $block->getData('variable_width') ?>,
-                vertical: <?= $block->getData('vertical') ?>,
-                verticalSwiping: <?= $block->getData('vertical_swiping') ?>,
-                waitForAnimate: <?= $block->getData('wait_for_animate') ?>,
+                rows: <?= $block->escapeJs($block->getDataByKey('rows')) ?>,
+                rtl: <?= $block->escapeJs($block->getDataByKey('rtl')) ?>,
+                slidesPerRow: <?= $block->escapeJs($block->getDataByKey('slides_per_row')) ?>,
+                slidesToScroll: <?= $block->escapeJs($block->getDataByKey('slides_to_scroll')) ?>,
+                slidesToShow: <?= $block->escapeJs($block->getDataByKey('slides_to_show')) ?>,
+                speed: <?= $block->escapeJs($block->getDataByKey('speed')) ?>,
+                swipe: <?= $block->escapeJs($block->getDataByKey('swipe')) ?>,
+                swipeToSlide: <?= $block->escapeJs($block->getDataByKey('swipe_to_slide')) ?>,
+                touchMove: <?= $block->escapeJs($block->getDataByKey('touch_move')) ?>,
+                touchThreshold: <?= $block->escapeJs($block->getDataByKey('touch_threshold')) ?>,
+                variableWidth: <?= $block->escapeJs($block->getDataByKey('variable_width')) ?>,
+                vertical: <?= $block->escapeJs($block->getDataByKey('vertical')) ?>,
+                verticalSwiping: <?= $block->escapeJs($block->getDataByKey('vertical_swiping')) ?>,
+                waitForAnimate: <?= $block->escapeJs($block->getDataByKey('wait_for_animate')) ?>,
                 responsive: [{
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: <?= min($block->getData('slides_to_show'), 5) ?>
+                        slidesToShow: <?= $block->escapeJs(min($block->getDataByKey('slides_to_show'), 5)) ?>
                     }
                 }, {
                     breakpoint: 768,
                     settings: {
-                        slidesToShow: <?= min($block->getData('slides_to_show'), 2) ?>
+                        slidesToShow: <?= $block->escapeJs(min($block->getDataByKey('slides_to_show'), 2)) ?>
                     }
                 }, {
                     breakpoint: 375,

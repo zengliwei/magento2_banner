@@ -9,12 +9,12 @@ namespace CrazyCat\Banner\Block\Widget;
 use CrazyCat\Banner\Model\Group\Item;
 use CrazyCat\Banner\Model\ResourceModel\Group\Item\Collection;
 use CrazyCat\Banner\Model\ResourceModel\Group\Item\CollectionFactory;
+use Exception;
 use Magento\Cms\Model\Template\FilterProvider;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Filesystem\DriverInterface;
 use Magento\Framework\View\Element\Template;
-use Magento\Framework\View\Element\Text;
 use Magento\Widget\Block\BlockInterface;
 
 /**
@@ -59,15 +59,15 @@ class Carousel extends Template implements BlockInterface
     }
 
     /**
-     * @inheritDoc
+     * Filter content
+     *
+     * @param string $content
+     * @return string
+     * @throws Exception
      */
-    protected function _toHtml()
+    public function filterContent($content)
     {
-        /** @var $blockDesc Text */
-        $blockDesc = $this->addChild('description', Text::class);
-        $blockDesc->setText($this->filterProvider->getBlockFilter()->filter($this->getDataByKey('description')));
-
-        return parent::_toHtml();
+        return $this->filterProvider->getBlockFilter()->filter($content);
     }
 
     /**
@@ -88,7 +88,7 @@ class Carousel extends Template implements BlockInterface
      *
      * @param string $mediaFile
      * @return string
-     * @throws NoSuchEntityException
+     * @throws Exception
      */
     public function getMediaUrl($mediaFile)
     {

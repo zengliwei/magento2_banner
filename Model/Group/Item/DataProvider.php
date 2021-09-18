@@ -16,7 +16,10 @@ use CrazyCat\Base\Model\AbstractDataProvider;
  */
 class DataProvider extends AbstractDataProvider
 {
-    protected string $persistKey = 'banner_item';
+    /**
+     * @var string
+     */
+    protected $persistKey = 'banner_item';
 
     /**
      * @inheritDoc
