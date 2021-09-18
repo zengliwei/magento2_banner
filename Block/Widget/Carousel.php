@@ -15,6 +15,7 @@ use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\Exception\NoSuchEntityException;
 use Magento\Framework\Filesystem\DriverInterface;
 use Magento\Framework\View\Element\Template;
+use Magento\Framework\View\Element\Text;
 use Magento\Widget\Block\BlockInterface;
 
 /**
@@ -56,6 +57,15 @@ class Carousel extends Template implements BlockInterface
         $this->driver = $driver;
         $this->filterProvider = $filterProvider;
         parent::__construct($context, $data);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    protected function _prepareLayout()
+    {
+        $this->addChild('content', Text::class);
+        return $this;
     }
 
     /**
