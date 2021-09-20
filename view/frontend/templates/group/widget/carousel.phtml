@@ -32,9 +32,7 @@ $blockId = 'carousel-' . $block->getJsId();
                     </div>
                     <?php if ($item->getDataByKey('content')): ?>
                         <div class="wysiwyg">
-                            <?= $block->getChildBlock('content')
-                                ->setData('text', $block->filterContent($item->getDataByKey('content')))
-                                ->toHtml() ?>
+                            <?= $block->filterContent($item->getDataByKey('content')) /* @noEscape */ ?>
                         </div>
                     <?php else: ?>
                         <div class="content">
